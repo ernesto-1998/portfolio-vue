@@ -6,7 +6,7 @@
 
 <script setup>
 import { reactive } from 'vue'
-import ImageTitle from '../generics/drawer-profile/ImageTitle.vue'
+import ImageTitle from '@/components/drawer-profile/ImageTitle.vue';
 
 const props = reactive({
   imgUrl: '/profile/neto_profile.jpeg',
@@ -17,10 +17,8 @@ const props = reactive({
 <style scoped>
 aside {
   width: 250px;
-  height: 100vh;
-  padding: 15px;
+  height: 100%;
   background-color: var(--page-color);
-  opacity: var(--opacity);
   border-radius: var(--border-radius-page);
 }
 </style>

@@ -1,12 +1,12 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
-  --layout-color: #dcf2f1;
-  --page-color: #7fc7d9;
-  --backtitle-color: #0f1035;
-  --element-color: #365486;
+  --layout-color: rgb(220, 242, 241);
+  --page-color: rgba(127, 199, 217, 0.3);
+  --backtitle-color: rgb(15, 16, 53);
+  --element-color: rgb(54, 84, 134);
 
-  --opacity: 0.3;
   --border-radius-page: 16px;
+  --border-radius-title: 10px;
 }
 
 *,

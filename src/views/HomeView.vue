@@ -12,6 +12,7 @@ import MainContent from '@/components/pages/MainContent.vue'
 
 <style scoped>
 .general-container {
+  height: 100vh;
   display: flex;
   gap: 20px;
   padding: 25px;
