@@ -40,4 +40,9 @@ img {
   text-align: center;
   color: var(--layout-color);
 }
+
+.profile-title > h2 {
+  font-family: var(--h2-font);
+  font-weight: 500;
+}
 </style>
