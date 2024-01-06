@@ -3,9 +3,9 @@
     <!-- <h1 class="title">Social Networks!</h1> -->
     <ul class="icons-list">
       <li v-for="icon in social" :key="icon.index" class="icons-li">
-        <a :href="icon.link" alt="Social Icon" target="_blank" rel="noreferrer"
-          ><img :src="icon.path" alt="social icon"
-        /></a>
+        <a :href="icon.link" alt="Social Icon" target="_blank" rel="noreferrer">
+          <base-icon :icon-name="icon.name" :size="35" :color="'white'"/>
+        </a>
       </li>
     </ul>
   </div>
@@ -13,6 +13,7 @@
 
 <script setup>
 import social from '@/utils/social.js'
+import BaseIcon from '../icons/BaseIcon.vue';
 </script>
 
 <style scoped>
@@ -39,6 +40,14 @@ import social from '@/utils/social.js'
   list-style: none;
   gap: 15px;
   margin-top: 10px;
+}
+
+.icons-li {
+  transition: 0.3s ease-in-out;
+}
+
+.icons-li:hover {
+  transform: translateY(-5px);
 }
 
 .icons-li img {

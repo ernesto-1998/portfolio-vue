@@ -1,15 +1,15 @@
 const social = [
     {
         link: "https://github.com/ernesto-1998",
-        path: "/redes/github.svg",
+        name: "github",
     },
     {
         link: "https://www.linkedin.com/in/ernesto1998/",
-        path: "/redes/linkedin.svg",
+        name: "linkedin",
     },
     {
         link: "https://www.instagram.com/elneto06/",
-        path: "/redes/instagram.svg",
+        name: "instagram",
     },
 ]
 
