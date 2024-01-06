@@ -23,6 +23,7 @@ defineProps({
 <style scoped>
 img {
   border-radius: var(--border-radius-page);
+  border: 5px solid var(--backtitle-color);
 }
 
 .container {

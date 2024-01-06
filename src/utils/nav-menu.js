@@ -5,10 +5,20 @@ const nav = [
         link: 'home',
     },
     {
-        name: "user",
+        name: "projects",
         title: "Projects",
         link: 'projects',
-    }
+    },
+    {
+        name: "work",
+        title: "Work",
+        link: 'work',
+    },
+    {
+        name: "contact",
+        title: "Contact me",
+        link: 'contact',
+    },
 ]
 
 export default nav

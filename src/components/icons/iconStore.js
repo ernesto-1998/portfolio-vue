@@ -4,6 +4,9 @@ import LinkedinIcon from './social/LinkedinIcon.vue'
 import Twittericon from './social/TwitterIcon.vue'
 
 import UserIcon from './nav-menu/UserIcon.vue'
+import ProjectsIcon from './nav-menu/ProjectsIcon.vue'
+import WorkIcon from './nav-menu/WorkIcon.vue'
+import ContactIcon from './nav-menu/ContactIcon.vue'
 
 export const store = {
     'github': GithubIcon,
@@ -12,4 +15,7 @@ export const store = {
     'twitter': Twittericon,
 
     'user': UserIcon,
+    'projects': ProjectsIcon,
+    'work': WorkIcon,
+    'contact': ContactIcon,
 }

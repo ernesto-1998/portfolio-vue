@@ -10,8 +10,8 @@
 import { reactive } from 'vue'
 
 import ImageTitle from '@/components/drawer-profile/ImageTitle.vue';
-import SocialNetworks from '../drawer-profile/SocialNetworks.vue';
-import EducationInfo from '../drawer-profile/EducationInfo.vue';
+import SocialNetworks from '@/components/drawer-profile/SocialNetworks.vue';
+import EducationInfo from '@/components/drawer-profile/EducationInfo.vue';
 
 const props = reactive({
   imgUrl: '/profile/neto_profile.jpeg',

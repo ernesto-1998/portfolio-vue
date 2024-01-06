@@ -1,15 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
-import HomePage from '@/components/main-content/frames/HomePage.vue'
-import ProjectsPage from '@/components/main-content/frames/ProjectsPage.vue'
+import HomeView from '../views/HomeView.vue'
+import HomePage from '@/pages/HomePage.vue'
+import ProjectsPage from '@/pages/ProjectsPage.vue'
+import WorkPage from '@/pages/WorkPage.vue'
+import ContactPage from '@/pages/ContactPage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      // name: 'home',
       component: HomeView,
       children: [
         {
@@ -21,6 +22,16 @@ const router = createRouter({
           path: 'projects',
           name: 'projects',
           component: ProjectsPage,
+        },
+        {
+          path: 'work-experience',
+          name: 'work',
+          component: WorkPage,
+        },
+        {
+          path: 'contact',
+          name: 'contact',
+          component: ContactPage,
         },
       ]
     }

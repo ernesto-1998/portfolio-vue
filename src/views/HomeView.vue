@@ -6,8 +6,8 @@
 </template>
 
 <script setup>
-import DrawerProfile from '@/components/pages/DrawerProfile.vue'
-import MainContent from '@/components/pages/MainContent.vue'
+import DrawerProfile from './DrawerProfile.vue'
+import MainContent from './MainContent.vue'
 </script>
 
 <style scoped>

@@ -1,36 +1,50 @@
 <template>
-    <ul class="nav-container">
-        <router-link :to="{name: item.link}" v-for="item in nav" :key="item.name" class="nav-item">
-            <base-icon :icon-name="item.name" color="white" size="50"/>
-            <h3>{{ item.title }}</h3>
-        </router-link>
-    </ul>
+  <ul class="nav-container">
+    <li v-for="item in nav" :key="item.name" class="nav-item">
+      <router-link :to="{ name: item.link }" class="nav-link">
+        <base-icon :icon-name="item.name" color="white" size="30" />
+        <h3>{{ item.title }}</h3>
+      </router-link>
+    </li>
+  </ul>
 </template>
 
 <script setup>
 import nav from '@/utils/nav-menu.js'
-import BaseIcon from '../icons/BaseIcon.vue';
+import BaseIcon from '../icons/BaseIcon.vue'
 </script>
 
 <style scoped>
 .nav-container {
-    height: 100%;
-    display: flex;
-    list-style: none;
-    gap: 25px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 15px;
+  background-color: var(--backtitle-color);
+  padding: 5px 10px;
+  border-radius: var(--border-radius-title);
 }
 
-.nav-item {
-    min-width: 110px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    background-color: var(--backtitle-color);
-    border-radius: var(--border-radius-title);
-    padding: 10px;
-    font-family: var(--title-font);
-    font-weight: 700;
-    color: var(--layout-color);
+.nav-link {
+  padding: 5px 5px;
+  min-width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--backtitle-color);
+  border-radius: var(--border-radius-title);
+  border: 2px solid var(--layout-color);
+  font-family: var(--title-font);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--layout-color);
+  transition: 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  cursor: pointer;
+  background-color: var(--element-color);
+  transform: translateY(-5px);
 }
 </style>
