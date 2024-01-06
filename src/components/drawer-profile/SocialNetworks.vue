@@ -1,9 +1,8 @@
 <template>
   <div class="social-container">
-    <!-- <h1 class="title">Social Networks!</h1> -->
     <ul class="icons-list">
       <li v-for="icon in social" :key="icon.index" class="icons-li">
-        <a :href="icon.link" alt="Social Icon" target="_blank" rel="noreferrer">
+        <a :href="icon.link" :alt="icon.name" target="_blank" rel="noreferrer">
           <base-icon :icon-name="icon.name" :size="35" :color="'white'"/>
         </a>
       </li>
@@ -19,27 +18,37 @@ import BaseIcon from '../icons/BaseIcon.vue';
 <style scoped>
 .social-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
   background-color: var(--backtitle-color);
-  padding: 10px;
-  margin-top: 15px;
+  padding: 0 15px;
   border-radius: 16px;
-  align-items: center;
   color: var(--layout-color);
 }
 
-.title {
+/* .title {
   font-family: var(--h2-font);
-}
+} */
 
 .icons-list {
+  padding: 10px 0;
+  max-width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
   list-style: none;
   gap: 15px;
-  margin-top: 10px;
+  overflow: auto;
+}
+
+.icons-list::-webkit-scrollbar {
+  height: 7px;
+  background: var(--page-color);
+  border-radius: var(--border-radius-page);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--layout-color);
+    border-radius: calc(15px / 2);
 }
 
 .icons-li {
@@ -50,7 +59,9 @@ import BaseIcon from '../icons/BaseIcon.vue';
   transform: translateY(-5px);
 }
 
-.icons-li img {
-  width: 50px;
+.icons-li a {
+  display: flex;
+  align-items: center;
+  height: fit-content;
 }
 </style>

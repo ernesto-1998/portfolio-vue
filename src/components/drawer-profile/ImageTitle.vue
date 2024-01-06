@@ -42,7 +42,7 @@ img {
 }
 
 .profile-title > h2 {
-  font-family: var(--h2-font);
+  font-family: var(--title-font);
   font-weight: 500;
 }
 </style>

@@ -11,3 +11,8 @@ img {
   object-fit: cover;
   width: 100%;
 }
+
+a {
+  display: block;
+  text-decoration: none;
+}

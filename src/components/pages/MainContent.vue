@@ -1,10 +1,12 @@
 <template>
   <main>
-    <section></section>
+    <section>
+      <nav-menu />
+    </section>
     <article>
       <router-view v-slot="{ Component }">
         <keep-alive>
-          <transition name="fade">
+          <transition name="slide-right">
             <component :is="Component" />
           </transition>
         </keep-alive>
@@ -12,6 +14,10 @@
     </article>
   </main>
 </template>
+
+<script setup>
+import NavMenu from '../main-content/NavMenu.vue';
+</script>
 
 <style scoped>
 main {
@@ -23,6 +29,8 @@ main {
 }
 
 section {
+  display: flex;
+  justify-content: center;
   height: 100px;
 }
 

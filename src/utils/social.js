@@ -11,6 +11,10 @@ const social = [
         link: "https://www.instagram.com/elneto06/",
         name: "instagram",
     },
+    {
+        link: "https://twitter.com/TheNeto06",
+        name: "twitter",
+    },
 ]
 
 export default social
