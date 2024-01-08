@@ -1,12 +1,12 @@
 <template>
     <div class="home-container">
-        <h1>Work Experience Page</h1>
+        <title-generic title="My work experience! 🤖"/>
     </div>
 </template>
 
+<script setup>
+import TitleGeneric from '@/components/TitleGeneric.vue';
+</script>
+
 <style scoped>
-    .home-container {
-        height: 100vh;
-        background-color: red;
-    }
 </style>

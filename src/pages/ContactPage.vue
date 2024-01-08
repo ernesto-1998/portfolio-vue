@@ -1,5 +1,9 @@
 <template>
     <div class="home-container">
-        <h1>Contact Page</h1>
+        <title-generic title="Contact me! 😍"/>
     </div>
 </template>
+
+<script setup>
+import TitleGeneric from '@/components/TitleGeneric.vue';
+</script>

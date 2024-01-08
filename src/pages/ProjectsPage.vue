@@ -1,5 +1,9 @@
 <template>
     <div class="home-container">
-        <h1>Projects Page</h1>
+        <title-generic title="A list of my projects! 🤖"/>
     </div>
 </template>
+
+<script setup>
+import TitleGeneric from '@/components/TitleGeneric.vue';
+</script>

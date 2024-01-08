@@ -4,12 +4,16 @@
   max-width: 1440px;
   margin: 0 auto;
   font-weight: normal;
-  background-color: var(--layout-color);
+  background-color: var(--page-color);
 }
 
 img {
   object-fit: cover;
   width: 100%;
+}
+
+ul {
+  list-style: none;
 }
 
 a {
