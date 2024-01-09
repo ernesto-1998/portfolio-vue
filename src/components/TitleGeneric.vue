@@ -29,4 +29,10 @@ defineProps({
   border-radius: var(--border-radius-page);
   font-size: 27px;
 }
+
+@media (max-width: 1024px) {
+  .title {
+    display: block;
+  }
+}
 </style>

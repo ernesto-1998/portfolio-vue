@@ -26,7 +26,12 @@ aside {
   gap: 15px;
   width: 250px;
   height: 100%;
-  /* background-color: var(--page-color); */
   border-radius: var(--border-radius-page);
+}
+
+@media (max-width: 1024px) {
+  aside {
+    display: none;
+  }
 }
 </style>

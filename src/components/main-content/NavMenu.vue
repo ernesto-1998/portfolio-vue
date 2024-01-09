@@ -47,4 +47,13 @@ import BaseIcon from '../icons/BaseIcon.vue'
   background-color: var(--element-color);
   transform: translateY(-5px);
 }
+
+@media (max-width: 768px) {
+  .nav-link {
+    min-width: 50px;
+  }
+  .nav-link > h3 {
+    display: none;
+  }
+}
 </style>
