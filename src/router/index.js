@@ -16,23 +16,23 @@ const router = createRouter({
         {
           path: '',
           name: 'home',
-          component: HomePage,
+          component: HomePage
         },
         {
           path: 'projects',
           name: 'projects',
-          component: ProjectsPage,
+          component: ProjectsPage
         },
         {
           path: 'work-experience',
           name: 'work',
-          component: WorkPage,
+          component: WorkPage
         },
         {
           path: 'contact',
           name: 'contact',
-          component: ContactPage,
-        },
+          component: ContactPage
+        }
       ]
     }
   ]

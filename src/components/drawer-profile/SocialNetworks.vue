@@ -3,7 +3,7 @@
     <ul class="icons-list">
       <li v-for="icon in social" :key="icon.index" class="icons-li">
         <a :href="icon.link" :alt="icon.name" target="_blank" rel="noreferrer">
-          <base-icon :icon-name="icon.name" :size="35" :color="'white'"/>
+          <base-icon :icon-name="icon.name" :size="35" :color="'white'" />
         </a>
       </li>
     </ul>
@@ -12,7 +12,7 @@
 
 <script setup>
 import social from '@/utils/social.js'
-import BaseIcon from '../icons/BaseIcon.vue';
+import BaseIcon from '../icons/BaseIcon.vue'
 </script>
 
 <style scoped>
@@ -47,8 +47,8 @@ import BaseIcon from '../icons/BaseIcon.vue';
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--layout-color);
-    border-radius: calc(15px / 2);
+  background: var(--layout-color);
+  border-radius: calc(15px / 2);
 }
 
 .icons-li {

@@ -17,4 +17,10 @@ import MainContent from './MainContent.vue'
   gap: 20px;
   padding: 25px;
 }
+
+/* @media (max-width: 1024px) {
+  .general-container {
+    flex-wrap: wrap;
+  }
+} */
 </style>
