@@ -61,4 +61,10 @@ article {
     transform: scale(1);
   }
 }
+
+@media (max-width: 768px) {
+  section {
+    height: 0;
+  }
+}
 </style>

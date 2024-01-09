@@ -1,5 +1,6 @@
 <template>
   <div class="home-container">
+    <image-title :img-url="props['image_title'].imgUrl" :profile-title="props['image_title'].profileTitle" />
     <title-generic :title="props['title_generic'].title" />
     <div class="home-body">
       <info-card :text="props['info_card'].text" />
@@ -14,6 +15,7 @@ import { reactive } from 'vue'
 import TitleGeneric from '@/components/TitleGeneric.vue'
 import InfoCard from '@/components/home-page/InfoCard.vue'
 import SkillsIcons from '@/components/home-page/SkillsIcons.vue'
+import ImageTitle from '@/components/drawer-profile/ImageTitle.vue'
 
 const props = reactive({
   title_generic: {
@@ -24,6 +26,10 @@ const props = reactive({
   },
   skills_icons: {
     title: 'My Favorite Technologies!'
+  },
+  image_title: {
+    imgUrl: '/profile/neto_profile.jpeg',
+    profileTitle: 'Ernesto Magaña'
   }
 })
 </script>

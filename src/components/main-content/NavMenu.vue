@@ -19,6 +19,7 @@ import BaseIcon from '../icons/BaseIcon.vue'
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   list-style: none;
   gap: 15px;
   background-color: var(--backtitle-color);
@@ -49,6 +50,15 @@ import BaseIcon from '../icons/BaseIcon.vue'
 }
 
 @media (max-width: 768px) {
+  .nav-container {
+    position: absolute;
+    z-index: 1000;
+    bottom: 0;
+    width: 100%;
+    height: fit-content;
+    padding: 10px 0px;
+    background-color: var(--backtitle-v2-color);
+  }
   .nav-link {
     min-width: 50px;
   }

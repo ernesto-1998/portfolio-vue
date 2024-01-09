@@ -24,9 +24,13 @@ defineProps({
 img {
   border-radius: var(--border-radius-page);
   border: 5px solid var(--backtitle-color);
+  max-width: 350px;
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
 }
 

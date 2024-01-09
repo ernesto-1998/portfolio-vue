@@ -18,9 +18,10 @@ import MainContent from './MainContent.vue'
   padding: 25px;
 }
 
-/* @media (max-width: 1024px) {
+@media (max-width: 768px) {
   .general-container {
     flex-wrap: wrap;
+    padding: 0;
   }
-} */
+}
 </style>
