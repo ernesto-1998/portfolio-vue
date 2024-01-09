@@ -15,7 +15,7 @@ import EducationInfo from '@/components/drawer-profile/EducationInfo.vue'
 
 const props = reactive({
   imgUrl: '/profile/neto_profile.jpeg',
-  profileTitle: 'Ernesto Magaña'
+  profileTitle: 'Ing. Ernesto Magaña'
 })
 </script>
 

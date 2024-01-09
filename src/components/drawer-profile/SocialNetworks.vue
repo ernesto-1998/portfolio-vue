@@ -25,10 +25,6 @@ import BaseIcon from '../icons/BaseIcon.vue'
   color: var(--layout-color);
 }
 
-/* .title {
-  font-family: var(--h2-font);
-} */
-
 .icons-list {
   padding: 10px 0;
   max-width: 100%;
@@ -63,5 +59,12 @@ import BaseIcon from '../icons/BaseIcon.vue'
   display: flex;
   align-items: center;
   height: fit-content;
+}
+
+@media (max-width: 1024px) {
+  .social-container {
+    background-color: var(--element-color);
+    padding: 5px 20px;
+  }
 }
 </style>

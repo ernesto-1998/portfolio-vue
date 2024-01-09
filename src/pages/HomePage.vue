@@ -1,9 +1,17 @@
 <template>
   <div class="home-container">
-    <image-title :img-url="props['image_title'].imgUrl" :profile-title="props['image_title'].profileTitle" />
+    <image-title
+      :img-url="props['image_title'].imgUrl"
+      :profile-title="props['image_title'].profileTitle"
+      class="display"
+    />
     <title-generic :title="props['title_generic'].title" />
     <div class="home-body">
       <info-card :text="props['info_card'].text" />
+      <div class="education-social_wrapper display">
+        <education-info />
+        <social-networks />
+      </div>
       <skills-icons :title="props['skills_icons'].title" />
     </div>
   </div>
@@ -16,6 +24,8 @@ import TitleGeneric from '@/components/TitleGeneric.vue'
 import InfoCard from '@/components/home-page/InfoCard.vue'
 import SkillsIcons from '@/components/home-page/SkillsIcons.vue'
 import ImageTitle from '@/components/drawer-profile/ImageTitle.vue'
+import EducationInfo from '@/components/drawer-profile/EducationInfo.vue'
+import SocialNetworks from '@/components/drawer-profile/SocialNetworks.vue'
 
 const props = reactive({
   title_generic: {
@@ -29,17 +39,32 @@ const props = reactive({
   },
   image_title: {
     imgUrl: '/profile/neto_profile.jpeg',
-    profileTitle: 'Ernesto Magaña'
+    profileTitle: 'Ing. Ernesto Magaña'
   }
 })
 </script>
 
 <style scoped>
+.home-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
 .home-body {
   display: grid;
   grid-template-columns: 40% 1fr;
   gap: 25px;
-  margin-top: 25px;
+}
+
+.education-social_wrapper {
+  display: grid;
+  row-gap: 20px;
+}
+
+@media (min-width: 1025px) {
+  .display {
+    display: none;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -47,4 +72,18 @@ const props = reactive({
     grid-template-columns: 1fr;
   }
 }
+@media (min-width: 768px) and (max-width: 1024px) {
+  .education-social_wrapper {
+    /* display: grid; */
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    padding-bottom: 100px;
+  }
+}
+
 </style>

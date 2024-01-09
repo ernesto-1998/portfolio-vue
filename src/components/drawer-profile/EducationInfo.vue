@@ -11,6 +11,7 @@
 
 <style scoped>
 .education-container {
+  max-width: 250px;
   padding: 10px 12px;
   background-color: var(--backtitle-color);
   border-radius: var(--border-radius-title);
