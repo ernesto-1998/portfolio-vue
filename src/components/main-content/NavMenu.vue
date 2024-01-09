@@ -23,7 +23,7 @@ import BaseIcon from '../icons/BaseIcon.vue'
   list-style: none;
   gap: 15px;
   background-color: var(--backtitle-color);
-  padding: 5px 10px;
+  padding: 7px 10px;
   border-radius: var(--border-radius-title);
 }
 
@@ -41,6 +41,11 @@ import BaseIcon from '../icons/BaseIcon.vue'
   font-size: 13px;
   color: var(--layout-color);
   transition: 0.3s ease-in-out;
+}
+
+.router-active-class {
+  background-color: var(--element-color);
+  transform: translateY(-5px);
 }
 
 .nav-link:hover {

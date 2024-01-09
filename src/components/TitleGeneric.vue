@@ -23,7 +23,7 @@ defineProps({
   display: inline;
   font-family: var(--text-font);
   color: var(--layout-color);
-  padding: 7px 15px;
+  padding: 5px 15px;
   background-color: var(--element-color);
   text-align: center;
   border-radius: var(--border-radius-page);

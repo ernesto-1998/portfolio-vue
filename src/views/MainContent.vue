@@ -32,7 +32,6 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
 }
 
 article {
@@ -62,7 +61,16 @@ article {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  article {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+/* Code for bottom navigation menu on mobile devices (not supported for dvh units) */
+
+/* @media (max-width: 768px) {
   section {
     position: absolute;
     z-index: 1000;
@@ -77,5 +85,5 @@ article {
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
   }
-}
+} */
 </style>

@@ -57,5 +57,5 @@ export const store = {
   firebase: FirebaseIcon,
   git: GitIcon,
   docker: DockerIcon,
-  linux: LinuxIcon,
+  linux: LinuxIcon
 }

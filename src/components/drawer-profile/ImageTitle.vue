@@ -48,6 +48,7 @@ img {
 .profile-title > h2 {
   font-family: var(--title-font);
   font-weight: 500;
+  font-size: 20px;
 }
 
 @media (max-width: 1024px) {
@@ -60,6 +61,10 @@ img {
     max-width: 350px;
     border-top: 5px solid var(--layout-color);
     background-color: var(--element-color);
+  }
+
+  .profile-title > h2 {
+    font-size: 30px;
   }
 }
 </style>

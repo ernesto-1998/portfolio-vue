@@ -39,6 +39,7 @@ const getDevops = computed(() => {
   color: var(--layout-color);
   font-family: var(--text-font);
   border-radius: var(--border-radius-page);
+  height: fit-content;
 }
 
 .skills-list {

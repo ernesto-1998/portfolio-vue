@@ -74,7 +74,7 @@ const skills_icons = [
   {
     name: 'linux',
     text: 'Linux'
-  },
+  }
 ]
 
 export default skills_icons

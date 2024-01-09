@@ -9,14 +9,14 @@
 import DrawerProfile from './DrawerProfile.vue'
 import MainContent from './MainContent.vue'
 
-if('virtualKeyboard' in navigator) {
-  navigator.virtualKeyboard.overlaysContent = true;
+if ('virtualKeyboard' in navigator) {
+  navigator.virtualKeyboard.overlaysContent = true
 }
 </script>
 
 <style scoped>
 .general-container {
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   gap: 20px;
   padding: 25px;
@@ -32,7 +32,7 @@ if('virtualKeyboard' in navigator) {
 @media (max-width: 768px) {
   .general-container {
     flex-wrap: wrap;
-    padding: 0;
+    /* padding: 0; */
   }
 }
 </style>

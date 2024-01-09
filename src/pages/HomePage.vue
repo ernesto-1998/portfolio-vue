@@ -80,10 +80,11 @@ const props = reactive({
   }
 }
 
-@media (max-width: 768px) {
+/* Code for bottom navigation menu on mobile devices (not supported for dvh units) */
+
+/* @media (max-width: 768px) {
   .home-container {
     padding-bottom: 100px;
   }
-}
-
+} */
 </style>
