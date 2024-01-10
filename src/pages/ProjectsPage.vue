@@ -1,24 +1,28 @@
 <template>
-  <div class="home-container">
+  <div class="page-container">
     <title-generic title="A list of my projects! 🤖" />
     <div class="projects-body">
-      <!-- <div  class="project-wrapper"> -->
-        <project-card v-for="card in projects" :key="card.title" :image="card.image" :url="card.url" :title="card.title" :description="card.description" :tech="card.tech"/>
-      <!-- </div> -->
+      <project-card
+        v-for="(card, index) in projects"
+        :key="index"
+        :image="card.image"
+        :url="card.url"
+        :title="card.title"
+        :description="card.description"
+        :tech="card.tech"
+      />
     </div>
   </div>
 </template>
 
 <script setup>
-
 import projects from '@/utils/projects.js'
 
 import TitleGeneric from '@/components/TitleGeneric.vue'
-import ProjectCard from '@/components/projects-page/ProjectCard.vue';
+import ProjectCard from '@/components/projects-page/ProjectCard.vue'
 </script>
 
 <style scoped>
-
 .home-container {
   display: flex;
   flex-direction: column;

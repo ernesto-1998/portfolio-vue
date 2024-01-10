@@ -7,6 +7,9 @@
   --backtitle-color: rgb(15, 16, 53);
   --backtitle-v2-color: rgba(15, 16, 53, 0.8);
   --element-color: rgb(54, 84, 134);
+  --cristal-main-color: rgba( 255, 255, 255, 0.15);
+  --cristal-border-color: rgba( 255, 255, 255, 0.18);
+  --cristal-box-shadow-color: rgba( 255, 255, 255, 0.18);
 
   /* Borders for elements */
   --border-radius-page: 16px;

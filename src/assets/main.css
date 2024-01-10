@@ -21,3 +21,20 @@ a {
   text-decoration: none;
   color: var(--layout-color);
 }
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--page-gap);
+}
+
+::-webkit-scrollbar {
+  height: 7px;
+  background: var(--page-color);
+  border-radius: var(--border-radius-page);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--layout-color);
+  border-radius: calc(15px / 2);
+}

@@ -1,5 +1,5 @@
 <template>
-  <div class="home-container">
+  <div class="page-container">
     <title-generic title="Contact me! 😍" />
   </div>
 </template>

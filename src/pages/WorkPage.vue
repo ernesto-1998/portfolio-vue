@@ -1,11 +1,23 @@
 <template>
-  <div class="home-container">
+  <div class="page-container">
     <title-generic title="My work experience! 🤖" />
+    <div class="work-body">
+      <work-card v-for="(work, index) in works" :key="index" :company="work.company" :position="work.position" :duration="work.duration" :description="work.description" :tech="work.tech"/>
+    </div>
   </div>
 </template>
 
 <script setup>
+import works from '@/utils/work';
+
 import TitleGeneric from '@/components/TitleGeneric.vue'
+import WorkCard from '@/components/work-page/WorkCard.vue'
 </script>
 
-<style scoped></style>
+<style scoped>
+.work-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--page-gap);
+}
+</style>

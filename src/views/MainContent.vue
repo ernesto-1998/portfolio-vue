@@ -6,7 +6,10 @@
     <article>
       <router-view v-slot="{ Component }">
         <keep-alive>
-          <transition name="bounce">
+          <transition
+            name="slide"
+            mode="out-in"
+          >
             <component :is="Component" />
           </transition>
         </keep-alive>
@@ -43,22 +46,31 @@ article {
   padding: 20px;
 }
 
-.bounce-enter-active {
-  animation: bounce-in 0.3s;
+/* Transition */
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.2s ease-out;
 }
-.bounce-leave-active {
-  animation: bounce-in 0.3s reverse;
+
+.slide-enter-to {
+  position: relative;
+  right: 0;
 }
-@keyframes bounce-in {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.25);
-  }
-  100% {
-    transform: scale(1);
-  }
+
+.slide-enter-from {
+  position: relative;
+  right: -100%;
+}
+
+.slide-leave-to {
+  position: relative;
+  left: -100%;
+}
+
+.slide-leave-from {
+  position: relative;
+  left: 0;
 }
 
 @media (max-width: 1024px) {

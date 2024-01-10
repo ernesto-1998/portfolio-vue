@@ -1,5 +1,5 @@
 <template>
-  <div class="home-container">
+  <div class="page-container">
     <image-title
       :img-url="props['image_title'].imgUrl"
       :profile-title="props['image_title'].profileTitle"

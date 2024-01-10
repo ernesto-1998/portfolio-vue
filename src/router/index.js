@@ -36,7 +36,10 @@ const router = createRouter({
       ]
     }
   ],
-  linkExactActiveClass: 'router-active-class'
+  linkExactActiveClass: 'router-active-class',
+  scrollBehavior (to, from, savedPosition) {
+    return savedPosition || {top:0}
+  }
 })
 
 export default router

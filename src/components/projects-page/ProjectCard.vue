@@ -1,11 +1,10 @@
 <template>
   <a :href="props.url" target="_blank" class="card-container">
     <img :src="props.image" alt="Web app project" />
-    <h1>{{ props.title }}</h1>
-    <p class="description">{{ props.description || 'Web App' }}</p>
-    <ul class="tech-list display">
-        <li v-for="item in props.tech" :key="item.lenght" class="tech-item">{{ item }}, </li>
-    </ul>
+    <div class="text-wrapper">
+        <h1>{{ props.title }}</h1>
+        <p class="description">{{ props.description || 'Web App' }}</p>
+    </div>
   </a>
 </template>
 
@@ -36,33 +35,53 @@ const props = defineProps({
 <style scoped>
 .card-container {
     transition: 0.3s ease-in-out;
+    font-family: var(--text-font);
+    background-color: var(--element-color);
 }
 
 h1 {
   width: 100%;
-  padding: 5px 0;
+  padding-top: 5px;
   background-color: var(--element-color);
   text-align: center;
   font-family: var(--title-font);
   font-weight: 700;
 }
 
+h1::before {
+  content: '🧑‍💻';
+  margin-right: 10px;
+}
+
 .description {
-  padding: 10px 5px;
+  padding: 5px 10px;
   font-family: var(--text-font);
-  background-color: var(--page-color);
+  background-color: var(--element-color);
   text-align: center;
+  overflow: hidden;
+  text-overflow: clip;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical; 
 }
 
 .tech-list {
     display: flex;
     flex-wrap: wrap;
-    padding: 10px 15px;
-    background-color: var(--element-color);
+    width: 100%;
+}
+
+.tech-item {
+    background-color: var(--page-color);
+    text-align: center;
 }
 
 .card-container:hover {
     transform: translateY(-7px);
+}
+
+.card-container:hover .tech-list {
+    right: -50%;
 }
 
 @media (max-width: 768px) {
