@@ -48,7 +48,7 @@ const props = reactive({
 .home-container {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: var(--page-gap);
 }
 .home-body {
   display: grid;

@@ -3,7 +3,7 @@
     <h3>Education</h3>
     <div class="separator"></div>
     <ul class="education-list">
-      <li>Bachiller general - 2016</li>
+      <li>Bachiller general - 2014</li>
       <li>Graduate of Computer Systems Engineering - 2015 - 2023</li>
     </ul>
   </div>

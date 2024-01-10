@@ -15,6 +15,9 @@
   /* Fonts variables */
   --title-font: 'Signika', sans-serif;
   --text-font: 'Bree Serif', serif;
+
+  /* Pages gap */
+  --page-gap: 25px;
 }
 
 *,
