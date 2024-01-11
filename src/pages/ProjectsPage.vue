@@ -23,11 +23,6 @@ import ProjectCard from '@/components/projects-page/ProjectCard.vue'
 </script>
 
 <style scoped>
-.home-container {
-  display: flex;
-  flex-direction: column;
-  gap: var(--page-gap);
-}
 .projects-body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

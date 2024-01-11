@@ -24,6 +24,7 @@ defineProps({
 img {
   border-radius: var(--border-radius-page);
   border: 5px solid var(--backtitle-color);
+  height: 250px;
 }
 
 .container {
@@ -55,6 +56,7 @@ img {
   img {
     border: 5px solid var(--layout-color);
     max-width: 350px;
+    height: 350px;
   }
 
   .profile-title {
