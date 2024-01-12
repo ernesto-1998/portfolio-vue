@@ -44,6 +44,7 @@ article {
   background-color: var(--backtitle-color);
   border-radius: var(--border-radius-page);
   padding: 20px;
+  overflow-x: hidden;
 }
 
 /* Transition */

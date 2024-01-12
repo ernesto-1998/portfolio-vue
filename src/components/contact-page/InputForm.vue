@@ -1,6 +1,6 @@
 <template>
     <div class="input-wrapper">
-        <input :name="props.object.name" :type="props.object.type" :placeholder="props.object.placeholder" :style="{paddingLeft: getPadding}" required>
+        <input :name="props.object.name" :type="props.object.type" :placeholder="props.object.placeholder" :style="{paddingLeft: getPadding}">
         <base-icon v-if="props.object.icon !== null" :icon-name="props.object.icon.name" :size="props.object.icon.size" :color="props.object.icon.color" id="icon"/>
     </div>
 </template>

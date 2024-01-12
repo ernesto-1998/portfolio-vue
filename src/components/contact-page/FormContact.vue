@@ -9,8 +9,7 @@
       </div>
       <input-form :object="props.email" />
       <text-area :object="props.textarea" />
-      <div class="h-captcha" data-captcha="true"></div>
-      <input type="checkbox" name="botcheck" class="hidden" style="display: none" />
+      <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
       <div class="button-wrapper"><button type="submit">Subtmit</button></div>
     </form>
   </div>
@@ -67,6 +66,10 @@ const senData = (e) => {
   e.preventDefault()
   const formData = new FormData(e.target)
   const object = Object.fromEntries(formData)
+  if(!object.name || !object.lastname || !object.email || !object.message) {
+    alerts.emailError('Error', 'You have to fill all form fields')
+    return
+  }
   const json = JSON.stringify(object)
   fetch('https://api.web3forms.com/submit', {
     method: 'POST',

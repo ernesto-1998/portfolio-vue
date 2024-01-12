@@ -1,5 +1,5 @@
 <template>
-    <textarea :name="props.object.name" :placeholder="props.object.placeholder" id="" cols="30" rows="7" required></textarea>
+    <textarea :name="props.object.name" :placeholder="props.object.placeholder" id="" cols="30" rows="7"></textarea>
 </template>
 <script setup>
 

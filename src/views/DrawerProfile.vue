@@ -19,11 +19,7 @@ const props = reactive({
   profileTitle: 'Ing. Ernesto Magaña',
   education: {
     title: 'Education',
-    items: ['Bachiller general - 2014', 'Graduate of Computer Systems Engineering | 2015 - 2023'],
-  },
-  languages: {
-    title: 'Languages',
-    items: ['Spanish - Native', 'English - C1', 'Portuguese - A1'],
+    items: ['Bachiller general - 2014', 'Graduate of Computer Systems Engineering | 2015 - 2023', 'Spanish - Native', 'English - C1', 'Portuguese - A1'],
   },
 })
 </script>
