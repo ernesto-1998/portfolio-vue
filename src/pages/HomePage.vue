@@ -9,7 +9,8 @@
     <div class="home-body">
       <info-card :text="props['info_card'].text" />
       <div class="education-social_wrapper display">
-        <education-info />
+        <education-info :object="props.education"/>
+        <education-info :object="props.languages"/>
         <social-networks />
       </div>
       <skills-icons :title="props['skills_icons'].title" />
@@ -40,7 +41,15 @@ const props = reactive({
   image_title: {
     imgUrl: '/profile/neto_profile.jpg',
     profileTitle: 'Ing. Ernesto Magaña'
-  }
+  },
+  education: {
+    title: 'Education',
+    items: ['Bachiller general - 2014', 'Graduate of Computer Systems Engineering | 2015 - 2023'],
+  },
+  languages: {
+    title: 'Languages',
+    items: ['Spanish - Native', 'English - C1', 'Portuguese - A1'],
+  },
 })
 </script>
 
@@ -74,8 +83,7 @@ const props = reactive({
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   .education-social_wrapper {
-    /* display: grid; */
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     place-items: center;
   }
 }

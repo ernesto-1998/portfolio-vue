@@ -1,14 +1,20 @@
 <template>
   <div class="education-container">
-    <h3>Education</h3>
+    <h3>{{ object.title }}</h3>
     <div class="separator"></div>
     <ul class="education-list">
-      <li>Bachiller general - 2014</li>
-      <li>Graduate of Computer Systems Engineering - 2015 - 2023</li>
+      <li v-for="(item, index) in object.items" :key="index">{{ item }}</li>
     </ul>
   </div>
 </template>
-
+<script setup>
+defineProps({
+  object: {
+    type: Object,
+    required: true,
+  }
+})
+</script>
 <style scoped>
 .education-container {
   max-width: 250px;
