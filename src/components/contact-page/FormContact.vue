@@ -1,23 +1,30 @@
 <template>
     <div class="form-wrapper">
         <h1>Send me an email!</h1>
-        <form action="(e) => console.log(e)" method="post">
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" ref="key">
             <div class="fullname-wrapper">
-                <input-form :type="props.name.type" :place-holder="props.name.placeholder" :icon="props.name.icon"/>
-                <input-form :type="props.lastname.type" :place-holder="props.lastname.placeholder" :icon="props.lastname.icon"/>
+                <input-form :object="props.name"/>
+                <input-form :object="props.lastname"/>
             </div>
-            <input-form :type="props.email.type" :place-holder="props.email.placeholder" :icon="props.email.icon"/>
-            <text-area :place-holder="props.textarea.placeholder"/>
+            <input-form :object="props.email"/>
+            <text-area :object="props.textarea"/>
+            <div class="h-captcha" data-captcha="true"></div>
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
             <div class="button-wrapper"><button type="submit">Subtmit</button></div>
         </form>
     </div>
 </template>
 
 <script setup>
-import { reactive } from 'vue';
-
+import { reactive, ref, onMounted } from 'vue';
+// f7f316ab-3366-4b07-abeb-b35c597b1340
 import InputForm from './InputForm.vue';
 import TextArea from './TextArea.vue';
+
+onMounted(() => {
+    key.value = 'f7f316ab-3366-4b07-abeb-b35c597b1340'
+})
 
 const props = reactive({
     name: {
@@ -55,6 +62,9 @@ const props = reactive({
         placeholder: 'how can i help you...'
     }
 })
+
+// const YOUR_ACCESS_KEY_HERE = ref('f7f316ab-3366-4b07-abeb-b35c597b1340')
+let key = ref(null)
 </script>
 
 <style scoped>
@@ -108,7 +118,9 @@ button:hover {
     background-color: var(--element-color);
 }
 
-/* @media (max-width: 1024px) {
-
-} */
+@media (max-width: 768px) {
+    .fullname-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
 </style>

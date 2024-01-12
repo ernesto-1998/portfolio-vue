@@ -1,7 +1,7 @@
 <template>
     <div class="input-wrapper">
-        <input :name="name" :type="props.type" :placeholder="props.placeHolder" :style="{paddingLeft: getPadding}">
-        <base-icon v-if="props.icon !== null" :icon-name="props.icon.name" :size="props.icon.size" :color="props.icon.color" id="icon"/>
+        <input :name="props.object.name" :type="props.object.type" :placeholder="props.object.placeholder" :style="{paddingLeft: getPadding}" required>
+        <base-icon v-if="props.object.icon !== null" :icon-name="props.object.icon.name" :size="props.object.icon.size" :color="props.object.icon.color" id="icon"/>
     </div>
 </template>
 <script setup>
@@ -10,26 +10,14 @@ import { computed } from 'vue';
 import BaseIcon from '@/components/icons/BaseIcon.vue'
 
 const props = defineProps({
-    name: {
-        type: String,
-        required: true,
-    },
-    type: {
-        type: String,
-        default: 'text'
-    },
-    placeHolder: {
-        type: String,
-        default: ''
-    },
-    icon: {
+    object: {
         type: Object,
-        default: null,
+        required: true,
     }
 })
 
 const getPadding = computed(() => {
-    return props.icon ? '35px': '5px'
+    return props.object.icon ? '35px': '5px'
 })
 </script>
 <style scoped>

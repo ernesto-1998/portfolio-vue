@@ -1,15 +1,11 @@
 <template>
-    <textarea :name="name" :placeholder="props.placeHolder" id="" cols="30" rows="7"></textarea>
+    <textarea :name="props.object.name" :placeholder="props.object.placeholder" id="" cols="30" rows="7" required></textarea>
 </template>
 <script setup>
 
 const props = defineProps({
-    placeHolder: {
-        type: String,
-        default: ''
-    },
-    name: {
-        type: String,
+    object: {
+        type: Object,
         required: true,
     }
 })
