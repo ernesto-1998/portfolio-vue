@@ -22,6 +22,7 @@ textarea {
     border: none;
     outline: none;
     transition: 0.3s ease-in-out;
+    resize: none;
 }
 
 textarea::placeholder {

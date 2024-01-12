@@ -1,5 +1,5 @@
 <template>
-  <div class="form-wrapper">
+  <div class="form-container">
     <h1>Send me an email!</h1>
     <form @submit="senData" ref="form" method="POST">
       <input type="hidden" name="access_key" :value="YOUR_ACCESS_KEY_HERE" />
@@ -95,7 +95,7 @@ const senData = (e) => {
 </script>
 
 <style scoped>
-.form-wrapper {
+.form-container {
   display: flex;
   flex-direction: column;
   gap: 15px;

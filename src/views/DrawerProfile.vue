@@ -3,7 +3,6 @@
     <image-title :img-url="props.imgUrl" :profile-title="props.profileTitle" />
     <social-networks />
     <education-info :object="props.education"/>
-    <!-- <education-info :object="props.languages"/> -->
   </aside>
 </template>
 
@@ -31,7 +30,6 @@ aside {
   gap: 15px;
   width: 250px;
   height: 100%;
-  /* overflow-y: auto; */
   border-radius: var(--border-radius-page);
 }
 

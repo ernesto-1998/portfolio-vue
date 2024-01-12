@@ -41,7 +41,7 @@ article {
   width: 100%;
   height: 100%;
   overflow-y: auto;
-  background-color: var(--backtitle-color);
+  background: var(--linear-gradient);
   border-radius: var(--border-radius-page);
   padding: 20px;
   overflow-x: hidden;
