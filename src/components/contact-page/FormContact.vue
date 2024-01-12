@@ -1,8 +1,8 @@
 <template>
     <div class="form-wrapper">
         <h1>Send me an email!</h1>
-        <form action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" ref="key">
+        <form @submit="senData" ref="form" method="POST">
+            <input type="hidden" name="access_key" :value="YOUR_ACCESS_KEY_HERE">
             <div class="fullname-wrapper">
                 <input-form :object="props.name"/>
                 <input-form :object="props.lastname"/>
@@ -17,14 +17,10 @@
 </template>
 
 <script setup>
-import { reactive, ref, onMounted } from 'vue';
+import { reactive, ref } from 'vue';
 // f7f316ab-3366-4b07-abeb-b35c597b1340
 import InputForm from './InputForm.vue';
 import TextArea from './TextArea.vue';
-
-onMounted(() => {
-    key.value = 'f7f316ab-3366-4b07-abeb-b35c597b1340'
-})
 
 const props = reactive({
     name: {
@@ -63,8 +59,40 @@ const props = reactive({
     }
 })
 
-// const YOUR_ACCESS_KEY_HERE = ref('f7f316ab-3366-4b07-abeb-b35c597b1340')
-let key = ref(null)
+const YOUR_ACCESS_KEY_HERE = ref('f7f316ab-3366-4b07-abeb-b35c597b1340')
+const form = ref(null)
+const senData = e => {
+    e.preventDefault();
+    const formData = new FormData(e.target)
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+    fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {//show response
+            let json = await response.json();
+            console.log(json);
+            if (response.status == 200) {
+                alert("Email succesfully sended!")
+            } else {
+                console.log(response);
+            }
+        })
+        .catch(error => {//show error
+            console.log(error);
+  
+        })
+        .then(function() {//reset form
+            form.value.reset();
+            //make response dissapear after 3 seconds if you wish
+        });
+    
+}
 </script>
 
 <style scoped>
