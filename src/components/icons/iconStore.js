@@ -3,10 +3,11 @@ import InstagramIcon from './social/InstagramIcon.vue'
 import LinkedinIcon from './social/LinkedinIcon.vue'
 import Twittericon from './social/TwitterIcon.vue'
 
-import UserIcon from './nav-menu/UserIcon.vue'
-import ProjectsIcon from './nav-menu/ProjectsIcon.vue'
-import WorkIcon from './nav-menu/WorkIcon.vue'
-import ContactIcon from './nav-menu/ContactIcon.vue'
+import UserIcon from './general/UserIcon.vue'
+import ProjectsIcon from './general/ProjectsIcon.vue'
+import WorkIcon from './general/WorkIcon.vue'
+import ContactIcon from './general/ContactIcon.vue'
+import LocationIcon from './general/LocationIcon.vue'
 
 import HtmlIcon from './skills/HtmlIcon.vue'
 import CssIcon from './skills/CssIcon.vue'
@@ -38,6 +39,7 @@ export const store = {
   projects: ProjectsIcon,
   work: WorkIcon,
   contact: ContactIcon,
+  location: LocationIcon,
 
   html5: HtmlIcon,
   css3: CssIcon,

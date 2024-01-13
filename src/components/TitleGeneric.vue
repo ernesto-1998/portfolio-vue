@@ -1,18 +1,25 @@
 <template>
   <div class="title-container">
-    <h1 class="title">
-      {{ title }}
+    <h1 class="title" :style="{backgroundColor: defineBack}">
+      {{ props.title }}
     </h1>
   </div>
 </template>
 
 <script setup>
-defineProps({
+import { computed } from 'vue';
+const props = defineProps({
   title: {
     type: String,
     required: true
+  },
+  background: {
+    type: Boolean,
+    default: true,
   }
 })
+
+const defineBack = computed(() => (props.background ? 'var(--element-color)': 'transparent'))
 </script>
 
 <style scoped>
@@ -24,7 +31,6 @@ defineProps({
   font-family: var(--text-font);
   color: var(--layout-color);
   padding: 5px 15px;
-  background-color: var(--element-color);
   text-align: center;
   border-radius: var(--border-radius-page);
   font-size: 27px;
