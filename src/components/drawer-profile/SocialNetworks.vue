@@ -34,6 +34,7 @@ const defineColor = computed(() => (props.backColor ? 'var(--backtitle-color)' :
   padding: 0 15px;
   border-radius: 16px;
   color: var(--layout-color);
+  margin: 0 auto;
 }
 
 .icons-list {

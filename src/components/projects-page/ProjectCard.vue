@@ -5,10 +5,14 @@
         <h1>{{ props.title }}</h1>
         <p class="description">{{ props.description || 'Web App' }}</p>
     </div>
+    <div class="tech-list">
+      {{ textTech }}
+    </div>
   </a>
 </template>
 
 <script setup>
+import { computed } from 'vue';
 const props = defineProps({
   image: {
     type: String,
@@ -30,6 +34,8 @@ const props = defineProps({
     required: true,
   }
 })
+
+const textTech = computed(() => props.tech.join(', '))
 </script>
 
 <style scoped>
@@ -42,7 +48,6 @@ const props = defineProps({
 h1 {
   width: 100%;
   padding-top: 5px;
-  background-color: var(--element-color);
   text-align: center;
   font-family: var(--title-font);
   font-weight: 700;
@@ -56,7 +61,6 @@ h1::before {
 .description {
   padding: 5px 10px;
   font-family: var(--text-font);
-  background-color: var(--element-color);
   text-align: center;
   overflow: hidden;
   text-overflow: clip;
@@ -69,11 +73,9 @@ h1::before {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-}
-
-.tech-item {
+    padding: 10px;
     background-color: var(--page-color);
-    text-align: center;
+    font-family: var(--title-font);
 }
 
 .card-container:hover {

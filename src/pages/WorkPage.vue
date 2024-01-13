@@ -1,6 +1,6 @@
 <template>
   <div class="page-container">
-    <title-generic title="My work experience! 🤖" />
+    <title-generic title="My work experience! 👔" />
     <div class="work-body">
       <work-card v-for="(work, index) in works" :key="index" :company="work.company" :position="work.position" :duration="work.duration" :description="work.description" :tech="work.tech"/>
     </div>

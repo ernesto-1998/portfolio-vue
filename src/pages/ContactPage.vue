@@ -1,6 +1,6 @@
 <template>
   <div class="page-container">
-    <title-generic title="Contact me! 😍" class="display"/>
+    <title-generic title="Contact me! 📢" class="display"/>
     <div class="form-body">
       <form-contact />
       <info-contact />

@@ -1,6 +1,6 @@
 <template>
   <div class="page-container">
-    <title-generic title="A list of my projects! 🤖" />
+    <title-generic title="A list of my projects! 💼" />
     <div class="projects-body">
       <project-card
         v-for="(card, index) in projects"
