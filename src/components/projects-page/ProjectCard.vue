@@ -45,6 +45,10 @@ const textTech = computed(() => props.tech.join(', '))
     background-color: var(--element-color);
 }
 
+img {
+  min-height: 200px;
+}
+
 h1 {
   width: 100%;
   padding-top: 5px;
@@ -73,6 +77,8 @@ h1::before {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    height: 80px;
+    overflow-y: auto;
     padding: 10px;
     background-color: var(--page-color);
     font-family: var(--title-font);

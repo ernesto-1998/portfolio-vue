@@ -1,5 +1,12 @@
 const projects = [
     {
+        title: "Videogame Rest Api",
+        url: "https://github.com/ernesto-1998/Videogame-Marketplace-Rest-Api",
+        image: "/projects/videogame-rest-api.jpg",
+        description: "A Rest Api of a Videogame Marketplace/Store, it has user authentication, CRUD operations and filters querys",
+        tech: ["nodejs", "express", "postgres", "mongodb", "express-session", "express-validator", "bcrypt", "docker", "docker compose"]
+    },
+    {
         title: 'SmartStore SV',
         url: 'https://smartstoresv.netlify.app/', 
         image: '/projects/smart-store.jpeg',
