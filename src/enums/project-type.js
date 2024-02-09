@@ -1,0 +1,7 @@
+const PROJECT_TYPE = {
+    FULLSTACK: "FULLSTACK",
+    FRONTEND: "FRONTEND",
+    BACKEND: "BACKEND",
+}
+
+export default PROJECT_TYPE

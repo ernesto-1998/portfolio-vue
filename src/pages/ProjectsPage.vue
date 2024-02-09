@@ -10,6 +10,7 @@
         :title="card.title"
         :description="card.description"
         :tech="card.tech"
+        :type="card.type"
       />
     </div>
   </div>

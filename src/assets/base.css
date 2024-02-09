@@ -22,6 +22,10 @@
     hsl(239deg 100% 17%) 100%
   );
 
+  --backend-tag-color: rgb(231, 0, 0); 
+  --frontend-tag-color: rgb(17, 150, 0); 
+  --fullstack-tag-color: rgb(17, 0, 255); 
+
   /* Borders for elements */
   --border-radius-page: 16px;
   --border-radius-title: 10px;
