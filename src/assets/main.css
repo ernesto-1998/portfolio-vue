@@ -1,10 +1,13 @@
 @import './base.css';
 
+body {
+  background-color: var(--page-color);
+}
+
 #app {
   max-width: 1440px;
   margin: 0 auto;
   font-weight: normal;
-  background-color: var(--page-color);
 }
 
 img {
