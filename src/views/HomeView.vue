@@ -32,7 +32,6 @@ if ('virtualKeyboard' in navigator) {
 @media (max-width: 768px) {
   .general-container {
     flex-wrap: wrap;
-    /* padding: 0; */
   }
 }
 </style>

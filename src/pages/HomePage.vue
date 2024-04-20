@@ -30,7 +30,7 @@ import SocialNetworks from '@/components/drawer-profile/SocialNetworks.vue'
 
 const props = reactive({
   title_generic: {
-    title: 'Hi! My name is Ernesto and I am a Web Developer! 🤖'
+    title: 'Hi! My name is Ernesto and I am a Software Engineer! 🤖'
   },
   info_card: {
     text: 'Hello, nice to meet you!🤗 I am a software engineer with three years of experience specializing in web development. My passion lies in technology, and I thoroughly enjoy taking on challenges. If you have any new ventures or projects in mind, I would be delighted to be a part of them.😎'
@@ -81,18 +81,11 @@ const props = reactive({
     grid-template-columns: 1fr;
   }
 }
+
 @media (min-width: 768px) and (max-width: 1024px) {
   .education-social_wrapper {
     grid-template-columns: 1fr 1fr 1fr;
     place-items: center;
   }
 }
-
-/* Code for bottom navigation menu on mobile devices (not supported for dvh units) */
-
-/* @media (max-width: 768px) {
-  .home-container {
-    padding-bottom: 100px;
-  }
-} */
 </style>

@@ -80,23 +80,4 @@ article {
     border-bottom-right-radius: 0;
   }
 }
-
-/* Code for bottom navigation menu on mobile devices (not supported for dvh units) */
-
-/* @media (max-width: 768px) {
-  section {
-    position: absolute;
-    z-index: 1000;
-    bottom: 0;
-    width: 100%;
-    height: fit-content;
-    padding: 10px 0;
-    background: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-  }
-} */
 </style>
