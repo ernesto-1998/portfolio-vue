@@ -1,12 +1,17 @@
 <template>
-  <a :href="props.url" target="_blank" class="card-container">
-    <div class="app-type_tag" :style="{backgroundColor: defineBack}">
-      {{ props.type }}
+  <modal-project ref="modal">
+    <template #content>
+      <modal-project-page :project="props.card" />
+    </template>
+  </modal-project>
+  <a @click="modal.openModal" target="_blank" class="card-container">
+    <div class="app-type_tag" :style="{ backgroundColor: defineBack }">
+      {{ props.card.type }}
     </div>
-    <img :src="props.image" alt="Web app project" />
+    <img :src="props.card.image" alt="Web app project" />
     <div class="text-wrapper">
-        <h1>{{ props.title }}</h1>
-        <p class="description">{{ props.description || 'Web App' }}</p>
+      <h1>{{ props.card.title }}</h1>
+      <p class="description">{{ props.card.description || 'Web App' }}</p>
     </div>
     <div class="tech-list">
       {{ textTech }}
@@ -15,47 +20,44 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue'
 
-import PROJECT_TYPE from '@/enums/project-type.js';
+import PROJECT_TYPE from '@/enums/project-type.js'
+import ModalProject from './ModalProject.vue'
+import ModalProjectPage from '@/pages/ModalProjectPage.vue'
+
+const modal = ref(null)
 
 const props = defineProps({
-  image: {
-    type: String,
+  card: {
+    type: Object,
     required: true
   },
-  url: {
-    type: String,
-    required: true
-  },
-  title: {
-    type: String,
-    required: true
-  },
-  description: {
-    type: String
-  },
-  tech: {
-    type: Array,
-    required: true,
-  },
-  type: {
-    type: String,
-    required: true,
-  }
 })
 
-const textTech = computed(() => props.tech.join(', '))
+const textTech = computed(() => props.card.tech.join(', '))
 
-const defineBack = computed(() => (props.type === PROJECT_TYPE.FULLSTACK ? 'var(--fullstack-tag-color)': props.type === PROJECT_TYPE.BACKEND ? 'var(--backend-tag-color)': props.type === PROJECT_TYPE.FRONTEND ? 'var(--frontend-tag-color)': 'var(--fullstack-tag-color)'))
+const defineBack = computed(() =>
+  props.card.type === PROJECT_TYPE.FULLSTACK
+    ? 'var(--fullstack-tag-color)'
+    : props.card.type === PROJECT_TYPE.BACKEND
+      ? 'var(--backend-tag-color)'
+      : props.card.type === PROJECT_TYPE.FRONTEND
+        ? 'var(--frontend-tag-color)'
+        : 'var(--fullstack-tag-color)'
+)
 </script>
 
 <style scoped>
 .card-container {
   position: relative;
-    transition: 0.3s ease-in-out;
-    font-family: var(--text-font);
-    background-color: var(--element-color);
+  transition: 0.3s ease-in-out;
+  font-family: var(--text-font);
+  background-color: var(--element-color);
+}
+
+.card-container:hover {
+  cursor: pointer;
 }
 
 .app-type_tag {
@@ -63,7 +65,6 @@ const defineBack = computed(() => (props.type === PROJECT_TYPE.FULLSTACK ? 'var(
   position: absolute;
   transform: translateX(-10px) rotate(-7grad);
   clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-
 }
 
 img {
@@ -91,31 +92,31 @@ h1::before {
   text-overflow: clip;
   display: -webkit-box;
   -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical; 
+  -webkit-box-orient: vertical;
 }
 
 .tech-list {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 80px;
-    overflow-y: auto;
-    padding: 10px;
-    background-color: var(--page-color);
-    font-family: var(--title-font);
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 80px;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: var(--page-color);
+  font-family: var(--title-font);
 }
 
 .card-container:hover {
-    transform: translateY(-7px);
+  transform: translateY(-7px);
 }
 
 .card-container:hover .tech-list {
-    right: -50%;
+  right: -50%;
 }
 
 @media (max-width: 768px) {
-    .display {
-        display: none;
-    }
+  .display {
+    display: none;
+  }
 }
 </style>

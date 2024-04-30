@@ -10,6 +10,7 @@
   --cristal-main-color: rgba( 255, 255, 255, 0.15);
   --cristal-border-color: rgba( 255, 255, 255, 0.18);
   --cristal-box-shadow-color: rgba( 255, 255, 255, 0.18);
+  --text-color: rgb(255, 255, 255);
   --linear-gradient: linear-gradient(
     45deg,
     hsl(238deg 56% 13%) 0%,

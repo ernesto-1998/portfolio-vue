@@ -16,12 +16,7 @@
       <project-card
         v-for="(card, index) in filteredProjects"
         :key="index"
-        :image="card.image"
-        :url="card.url"
-        :title="card.title"
-        :description="card.description"
-        :tech="card.tech"
-        :type="card.type"
+        :card="card"
       />
     </div>
   </div>

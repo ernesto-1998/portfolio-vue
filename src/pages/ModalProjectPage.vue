@@ -1,0 +1,81 @@
+<template>
+  <div class="project-page_wrapper">
+    <div class="project-page_row">
+      <img class="image" :src="props.project.image" alt="" />
+      <div class="project-page_description">
+        <h1>{{ props.project.title }}</h1>
+        <p class="project-page_text">{{ props.project.description || 'Web App' }}</p>
+        <div class="project-page_button">
+          <link-button :link="props.project.url" :text="'Link'" />
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import LinkButton from '@/components/LinkButton.vue'
+
+const props = defineProps({
+  project: {
+    type: Object,
+    required: true
+  }
+})
+</script>
+
+<style scoped>
+.project-page_wrapper {
+  padding: 15px;
+  color: var(--text-color);
+}
+
+.project-page_row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-height: 600px;
+}
+
+.image {
+    padding: 10px;
+}
+
+.project-page_description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 5px 10px;
+}
+
+h1 {
+  width: 100%;
+  padding-top: 5px;
+  font-size: 35px;
+  text-align: center;
+  font-family: var(--title-font);
+  font-weight: 700;
+}
+
+.project-page_text {
+  background-color: var(--element-color);
+  border-radius: var(--border-radius-page);
+  line-height: 30px;
+  padding: 20px;
+  max-height: 300px;
+  font-family: var(--text-font);
+  text-align: center;
+  overflow-y: auto;
+}
+
+.project-page_button {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .project-page_row {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
