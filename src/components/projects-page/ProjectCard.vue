@@ -1,7 +1,7 @@
 <template>
   <modal-project ref="modal">
     <template #content>
-      <modal-project-page :project="props.card" />
+      <modal-project-page :project="props.card" :tag-color="defineBack"/>
     </template>
   </modal-project>
   <a @click="modal.openModal" target="_blank" class="card-container">

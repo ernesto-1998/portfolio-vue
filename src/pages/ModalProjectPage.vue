@@ -1,12 +1,17 @@
 <template>
   <div class="project-page_wrapper">
     <div class="project-page_row">
-      <img class="image" :src="props.project.image" alt="" />
+      <div class="image-tag_wrapper">
+        <div class="app-type_tag" :style="{ backgroundColor: props.tagColor }">
+          {{ props.project.type }}
+        </div>
+        <img class="image" :src="props.project.image" alt="" />
+      </div>
       <div class="project-page_description">
         <h1>{{ props.project.title }}</h1>
         <p class="project-page_text">{{ props.project.description || 'Web App' }}</p>
         <div class="project-page_button">
-          <link-button :link="props.project.url" :text="'Link'" />
+          <link-button :style="{ backgroundColor: props.tagColor }" :link="props.project.url" :text="'Link'" />
         </div>
       </div>
     </div>
@@ -20,8 +25,13 @@ const props = defineProps({
   project: {
     type: Object,
     required: true
+  },
+  tagColor: {
+    type: String,
+    required: true,
   }
 })
+
 </script>
 
 <style scoped>
@@ -33,11 +43,20 @@ const props = defineProps({
 .project-page_row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  max-height: 600px;
+  max-height: 500px;
 }
 
-.image {
-    padding: 10px;
+.image-tag_wrapper {
+  position: relative;
+  padding: 10px;
+}
+
+.app-type_tag {
+  font-family: var(--text-font);
+  padding: 10px 20px;
+  position: absolute;
+  transform: translateX(-10px) rotate(-7grad);
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
 }
 
 .project-page_description {
@@ -62,7 +81,7 @@ h1 {
   border-radius: var(--border-radius-page);
   line-height: 30px;
   padding: 20px;
-  max-height: 300px;
+  max-height: 250px;
   font-family: var(--text-font);
   text-align: center;
   overflow-y: auto;
