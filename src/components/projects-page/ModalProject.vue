@@ -17,6 +17,7 @@ let dialog = ref()
 
 const openModal = () => {
     dialog.value.showModal();
+    dialog.value.scrollTop=0
 }
 
 const closeModal = () => {
@@ -29,11 +30,33 @@ defineExpose({
 </script>
 
 <style scoped>
+dialog[open] {
+    -webkit-animation: show 1s ease normal;
+    animation: show 0.5s ease normal;
+}
+
+@-webkit-keyframes show{
+    from {
+        transform: translateY(-110%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes show{
+    from {
+        transform: translateY(-110%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
 .dialog-wrapper {
-    position: absolute;
-    min-width: 97%;
+    position: relative;
     margin: auto;
-    min-height: 97dvh;
+    max-height: 97dvh;
     background-color: var(--backtitle-color);
 }
 
@@ -43,6 +66,9 @@ defineExpose({
 }
 
 .dialog-header {
+    position: sticky;
+    top: 0;
+    z-index: 200;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -56,5 +82,17 @@ defineExpose({
 
 .dialog-button:hover {
     cursor: pointer;
+}
+
+@media (min-width: 1025px) {
+    .dialog-wrapper {
+        max-width: 75%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .dialog-wrapper {
+        max-width: 97%;
+    }
 }
 </style>

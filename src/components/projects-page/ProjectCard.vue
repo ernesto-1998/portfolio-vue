@@ -13,9 +13,6 @@
       <h1>{{ props.card.title }}</h1>
       <p class="description">{{ props.card.description || 'Web App' }}</p>
     </div>
-    <div class="tech-list">
-      {{ textTech }}
-    </div>
   </a>
 </template>
 
@@ -34,8 +31,6 @@ const props = defineProps({
     required: true
   },
 })
-
-const textTech = computed(() => props.card.tech.join(', '))
 
 const defineBack = computed(() =>
   props.card.type === PROJECT_TYPE.FULLSTACK
@@ -93,17 +88,6 @@ h1::before {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-}
-
-.tech-list {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 80px;
-  overflow-y: auto;
-  padding: 10px;
-  background-color: var(--page-color);
-  font-family: var(--title-font);
 }
 
 .card-container:hover {

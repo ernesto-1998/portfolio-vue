@@ -10,6 +10,9 @@
       <div class="project-page_description">
         <h1>{{ props.project.title }}</h1>
         <p class="project-page_text">{{ props.project.description || 'Web App' }}</p>
+        <div class="project-page_tech">
+          <education-info :object="techObject"/>
+        </div>
         <div class="project-page_button">
           <link-button :style="{ backgroundColor: props.tagColor }" :link="props.project.url" :text="'Link'" />
         </div>
@@ -20,6 +23,7 @@
 
 <script setup>
 import LinkButton from '@/components/LinkButton.vue'
+import EducationInfo from '@/components/drawer-profile/EducationInfo.vue'
 
 const props = defineProps({
   project: {
@@ -32,6 +36,11 @@ const props = defineProps({
   }
 })
 
+const techObject = {
+  title: "Tech:",
+  items: props.project.tech
+}
+
 </script>
 
 <style scoped>
@@ -42,8 +51,7 @@ const props = defineProps({
 
 .project-page_row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  max-height: 500px;
+  grid-template-columns: 1fr;
 }
 
 .image-tag_wrapper {
@@ -67,6 +75,11 @@ const props = defineProps({
   padding: 5px 10px;
 }
 
+.project-page_tech {
+  display: flex;
+  justify-content: center;
+}
+
 h1 {
   width: 100%;
   padding-top: 5px;
@@ -87,14 +100,22 @@ h1 {
   overflow-y: auto;
 }
 
+.project-page_tech {
+  padding: 5px;
+  font-family: var(--text-font);
+  line-height: 25px;
+}
+
 .project-page_button {
+
   display: flex;
   justify-content: center;
 }
 
-@media (max-width: 1024px) {
-  .project-page_row {
-    grid-template-columns: 1fr;
+@media (min-width: 1024px) {
+  .project-page_wrapper {
+    max-width: 75%;
+  margin: 0 auto;
   }
 }
 </style>
