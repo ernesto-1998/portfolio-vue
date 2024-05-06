@@ -37,8 +37,8 @@ const router = createRouter({
     }
   ],
   linkExactActiveClass: 'router-active-class',
-  scrollBehavior (to, from, savedPosition) {
-    return savedPosition || {top:0}
+  scrollBehavior(to, from, savedPosition) {
+    return savedPosition || { top: 0 }
   }
 })
 

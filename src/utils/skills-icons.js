@@ -12,6 +12,10 @@ const skills_icons = [
     text: 'Javascript'
   },
   {
+    name: 'ts',
+    text: 'Typescript'
+  },
+  {
     name: 'vue',
     text: 'Vue'
   },

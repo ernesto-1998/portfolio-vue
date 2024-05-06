@@ -2,7 +2,7 @@
   <aside>
     <image-title :img-url="props.imgUrl" :profile-title="props.profileTitle" />
     <social-networks />
-    <education-info :object="props.education"/>
+    <education-info :object="props.education" />
   </aside>
 </template>
 
@@ -18,8 +18,14 @@ const props = reactive({
   profileTitle: 'Ing. Ernesto Magaña',
   education: {
     title: 'Education',
-    items: ['Bachiller general - 2014', 'Graduate of Computer Systems Engineering | 2015 - 2023', 'Spanish - Native', 'English - C1', 'Portuguese - A1'],
-  },
+    items: [
+      'Bachiller general - 2014',
+      'Graduate of Computer Systems Engineering | 2015 - 2023',
+      'Spanish - Native',
+      'English - C1',
+      'Portuguese - A1'
+    ]
+  }
 })
 </script>
 

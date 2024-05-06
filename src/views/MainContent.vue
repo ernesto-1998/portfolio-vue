@@ -6,10 +6,7 @@
     <article>
       <router-view v-slot="{ Component }">
         <keep-alive>
-          <transition
-            name="slide"
-            mode="out-in"
-          >
+          <transition name="slide" mode="out-in">
             <component :is="Component" />
           </transition>
         </keep-alive>

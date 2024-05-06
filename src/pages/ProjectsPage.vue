@@ -13,11 +13,7 @@
       </div>
     </div>
     <div class="projects-body">
-      <project-card
-        v-for="(card, index) in filteredProjects"
-        :key="index"
-        :card="card"
-      />
+      <project-card v-for="(card, index) in filteredProjects" :key="index" :card="card" />
     </div>
   </div>
 </template>

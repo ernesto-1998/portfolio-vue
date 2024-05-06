@@ -1,7 +1,7 @@
 <template>
   <modal-project ref="modal">
     <template #content>
-      <modal-project-page :project="props.card" :tag-color="defineBack"/>
+      <modal-project-page :project="props.card" :tag-color="defineBack" />
     </template>
   </modal-project>
   <a @click="modal.openModal" target="_blank" class="card-container">
@@ -29,7 +29,7 @@ const props = defineProps({
   card: {
     type: Object,
     required: true
-  },
+  }
 })
 
 const defineBack = computed(() =>
@@ -72,6 +72,10 @@ h1 {
   text-align: center;
   font-family: var(--title-font);
   font-weight: 700;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 h1::before {
@@ -81,6 +85,7 @@ h1::before {
 
 .description {
   padding: 5px 10px;
+  margin-top: 10px;
   font-family: var(--text-font);
   text-align: center;
   overflow: hidden;

@@ -1,13 +1,13 @@
 <template>
   <div class="title-container">
-    <h1 class="title" :style="{backgroundColor: defineBack}">
+    <h1 class="title" :style="{ backgroundColor: defineBack }">
       {{ props.title }}
     </h1>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed } from 'vue'
 const props = defineProps({
   title: {
     type: String,
@@ -15,11 +15,11 @@ const props = defineProps({
   },
   background: {
     type: Boolean,
-    default: true,
+    default: true
   }
 })
 
-const defineBack = computed(() => (props.background ? 'var(--element-color)': 'transparent'))
+const defineBack = computed(() => (props.background ? 'var(--element-color)' : 'transparent'))
 </script>
 
 <style scoped>

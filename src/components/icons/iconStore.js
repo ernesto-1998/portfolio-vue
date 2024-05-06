@@ -12,6 +12,7 @@ import LocationIcon from './general/LocationIcon.vue'
 import HtmlIcon from './skills/HtmlIcon.vue'
 import CssIcon from './skills/CssIcon.vue'
 import JavascriptIcon from './skills/JavascriptIcon.vue'
+import TypescriptIcon from './skills/TypescriptIcon.vue'
 import VueIcon from './skills/VueIcon.vue'
 import NuxtIcon from './skills/NuxtIcon.vue'
 import ReactIcon from './skills/ReactIcon.vue'
@@ -44,6 +45,7 @@ export const store = {
   html5: HtmlIcon,
   css3: CssIcon,
   js: JavascriptIcon,
+  ts: TypescriptIcon,
   vue: VueIcon,
   nuxt: NuxtIcon,
   react: ReactIcon,

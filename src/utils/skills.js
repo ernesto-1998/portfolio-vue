@@ -3,6 +3,7 @@ const skills = {
     'HTML5',
     'CSS3',
     'Javascript',
+    'Typescript',
     'Tailwind',
     'Bootstrap',
     'Jinja',
@@ -10,7 +11,17 @@ const skills = {
     'Nuxt',
     'React'
   ],
-  backend: ['Node', 'Express', 'Python', 'Django', 'FastApi', 'Postgresql', 'MongoDB', 'Firebase'],
+  backend: [
+    'Node',
+    'Express',
+    'Typescript',
+    'Python',
+    'Django',
+    'FastApi',
+    'Postgresql',
+    'MongoDB',
+    'Firebase'
+  ],
   devops: ['Git', 'Github flow', 'Github', 'Docker', 'Docker compose']
 }
 

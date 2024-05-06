@@ -11,10 +11,14 @@
         <h1>{{ props.project.title }}</h1>
         <p class="project-page_text">{{ props.project.description || 'Web App' }}</p>
         <div class="project-page_tech">
-          <education-info :object="techObject"/>
+          <education-info :object="techObject" />
         </div>
         <div class="project-page_button">
-          <link-button :style="{ backgroundColor: props.tagColor }" :link="props.project.url" :text="'Link'" />
+          <link-button
+            :style="{ backgroundColor: props.tagColor }"
+            :link="props.project.url"
+            :text="'Link'"
+          />
         </div>
       </div>
     </div>
@@ -32,15 +36,14 @@ const props = defineProps({
   },
   tagColor: {
     type: String,
-    required: true,
+    required: true
   }
 })
 
 const techObject = {
-  title: "Tech:",
+  title: 'Tech:',
   items: props.project.tech
 }
-
 </script>
 
 <style scoped>
@@ -107,7 +110,6 @@ h1 {
 }
 
 .project-page_button {
-
   display: flex;
   justify-content: center;
 }
@@ -115,7 +117,7 @@ h1 {
 @media (min-width: 1024px) {
   .project-page_wrapper {
     max-width: 75%;
-  margin: 0 auto;
+    margin: 0 auto;
   }
 }
 </style>

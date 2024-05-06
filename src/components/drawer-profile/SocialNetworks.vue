@@ -1,5 +1,5 @@
 <template>
-  <div class="social-container" :style="{backgroundColor: defineColor}">
+  <div class="social-container" :style="{ backgroundColor: defineColor }">
     <ul class="icons-list">
       <li v-for="icon in social" :key="icon.index" class="icons-li">
         <a :href="icon.link" :alt="icon.name" target="_blank" rel="noreferrer">
@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed } from 'vue'
 
 import social from '@/utils/social.js'
 import BaseIcon from '../icons/BaseIcon.vue'
@@ -19,11 +19,13 @@ import BaseIcon from '../icons/BaseIcon.vue'
 const props = defineProps({
   backColor: {
     type: Boolean,
-    default: true,
+    default: true
   }
 })
 
-const defineColor = computed(() => (props.backColor ? 'var(--backtitle-color)' : 'var(--element-color)'))
+const defineColor = computed(() =>
+  props.backColor ? 'var(--backtitle-color)' : 'var(--element-color)'
+)
 </script>
 
 <style scoped>

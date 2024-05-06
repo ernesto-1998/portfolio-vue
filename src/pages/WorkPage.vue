@@ -2,13 +2,21 @@
   <div class="page-container">
     <title-generic title="My work experience! 👔" />
     <div class="work-body">
-      <work-card v-for="(work, index) in works" :key="index" :company="work.company" :position="work.position" :duration="work.duration" :description="work.description" :tech="work.tech"/>
+      <work-card
+        v-for="(work, index) in works"
+        :key="index"
+        :company="work.company"
+        :position="work.position"
+        :duration="work.duration"
+        :description="work.description"
+        :tech="work.tech"
+      />
     </div>
   </div>
 </template>
 
 <script setup>
-import works from '@/utils/work';
+import works from '@/utils/work'
 
 import TitleGeneric from '@/components/TitleGeneric.vue'
 import WorkCard from '@/components/work-page/WorkCard.vue'

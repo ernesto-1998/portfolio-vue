@@ -9,9 +9,9 @@
     <div class="home-body">
       <info-card :text="props['info_card'].text" />
       <div class="education-social_wrapper display">
-        <education-info :object="props.education"/>
-        <education-info :object="props.languages"/>
-        <social-networks :back-color="false"/>
+        <education-info :object="props.education" />
+        <education-info :object="props.languages" />
+        <social-networks :back-color="false" />
       </div>
       <skills-icons :title="props['skills_icons'].title" />
     </div>
@@ -44,12 +44,12 @@ const props = reactive({
   },
   education: {
     title: 'Education',
-    items: ['Bachiller general - 2014', 'Graduate of Computer Systems Engineering | 2015 - 2023'],
+    items: ['Bachiller general - 2014', 'Graduate of Computer Systems Engineering | 2015 - 2023']
   },
   languages: {
     title: 'Languages',
-    items: ['Spanish - Native', 'English - C1', 'Portuguese - A1'],
-  },
+    items: ['Spanish - Native', 'English - C1', 'Portuguese - A1']
+  }
 })
 </script>
 
