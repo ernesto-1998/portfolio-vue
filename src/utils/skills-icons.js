@@ -16,6 +16,10 @@ const skills_icons = [
     text: 'Typescript'
   },
   {
+    name: 'angular',
+    text: 'Angular'
+  },
+  {
     name: 'vue',
     text: 'Vue'
   },
@@ -34,6 +38,10 @@ const skills_icons = [
   {
     name: 'bootstrap',
     text: 'Bootstrap'
+  },
+  {
+    name: 'csharp',
+    text: 'C#'
   },
   {
     name: 'node',

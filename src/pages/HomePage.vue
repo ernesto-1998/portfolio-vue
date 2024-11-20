@@ -39,7 +39,7 @@ const props = reactive({
     title: 'My Favorite Technologies!'
   },
   image_title: {
-    imgUrl: '/profile/neto_profile.jpg',
+    imgUrl: '/profile/neto2.png',
     profileTitle: 'Ing. Ernesto Magaña'
   },
   education: {

@@ -29,6 +29,8 @@ import FirebaseIcon from './skills/FirebaseIcon.vue'
 import GitIcon from './skills/GitIcon.vue'
 import DockerIcon from './skills/DockerIcon.vue'
 import LinuxIcon from './skills/LinuxIcon.vue'
+import AngularIcon from './skills/AngularIcon.vue'
+import CSharpIcon from './skills/CSharpIcon.vue'
 
 export const store = {
   github: GithubIcon,
@@ -61,5 +63,7 @@ export const store = {
   firebase: FirebaseIcon,
   git: GitIcon,
   docker: DockerIcon,
-  linux: LinuxIcon
+  linux: LinuxIcon,
+  angular: AngularIcon,
+  csharp: CSharpIcon
 }
