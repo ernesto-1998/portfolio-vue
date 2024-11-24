@@ -19,7 +19,6 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue'
 
 import TitleGeneric from '@/components/TitleGeneric.vue'
 import InfoCard from '@/components/home-page/InfoCard.vue'
@@ -28,7 +27,7 @@ import ImageTitle from '@/components/drawer-profile/ImageTitle.vue'
 import EducationInfo from '@/components/drawer-profile/EducationInfo.vue'
 import SocialNetworks from '@/components/drawer-profile/SocialNetworks.vue'
 
-const props = reactive({
+const props = {
   title_generic: {
     title: 'Hi! My name is Ernesto and I am a Software Engineer! 🤖'
   },
@@ -39,7 +38,7 @@ const props = reactive({
     title: 'My Favorite Technologies!'
   },
   image_title: {
-    imgUrl: '/profile/neto_profile.jpg',
+    imgUrl: '/profile/neto2.png',
     profileTitle: 'Ing. Ernesto Magaña'
   },
   education: {
@@ -50,7 +49,7 @@ const props = reactive({
     title: 'Languages',
     items: ['Spanish - Native', 'English - C1', 'Portuguese - A1']
   }
-})
+}
 </script>
 
 <style scoped>
