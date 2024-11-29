@@ -51,7 +51,7 @@ const skills_icons = [
     name: 'express',
     text: 'Express'
   },
-  {
+ /*  {
     name: 'python',
     text: 'Python'
   },
@@ -62,7 +62,7 @@ const skills_icons = [
   {
     name: 'fastapi',
     text: 'FastApi'
-  },
+  }, */
   {
     name: 'postgres',
     text: 'Postgres'

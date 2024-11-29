@@ -2,9 +2,9 @@
   <div class="info-container">
     <p>{{ text }}</p>
     <ul class="skills-list">
-      <li class="skill-item"><span>Frontend: </span>{{ getFrontend }}</li>
-      <li class="skill-item"><span>Backend: </span>{{ getBackend }}</li>
-      <li class="skill-item"><span>Devops: </span>{{ getDevops }}</li>
+      <li class="skill-item"><span>Frontend: </span> <br>{{ getFrontend }}</li>
+      <li class="skill-item"><span>Backend: </span> <br>{{ getBackend }}</li>
+      <li class="skill-item"><span>Devops: </span> <br>{{ getDevops }}</li>
     </ul>
   </div>
 </template>
@@ -42,6 +42,10 @@ const getDevops = computed(() => {
   height: fit-content;
 }
 
+.info-container > p {
+  line-height: 2;
+}
+
 .skills-list {
   display: flex;
   flex-direction: column;
@@ -55,5 +59,6 @@ const getDevops = computed(() => {
 .skill-item > span {
   font-weight: bold;
   font-size: 20px;
+  margin-bottom: 15px;
 }
 </style>
