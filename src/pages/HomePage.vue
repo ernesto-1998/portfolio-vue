@@ -27,12 +27,14 @@ import ImageTitle from '@/components/drawer-profile/ImageTitle.vue'
 import EducationInfo from '@/components/drawer-profile/EducationInfo.vue'
 import SocialNetworks from '@/components/drawer-profile/SocialNetworks.vue'
 
+const EXPERIENCE_YEARS = new Date().getFullYear() - 2021; 
+
 const props = {
   title_generic: {
     title: 'Hi! My name is Ernesto and I am a Software Engineer! 🤖'
   },
   info_card: {
-    text: 'Hello, nice to meet you!🤗 I am a software engineer with three years of experience specializing in web development. My passion lies in technology, and I thoroughly enjoy taking on challenges. If you have any new ventures or projects in mind, I would be delighted to be a part of them.😎'
+    text: `Hello, nice to meet you!🤗 I am a software engineer with ${EXPERIENCE_YEARS} years of experience specializing in web development. My passion lies in technology, and I thoroughly enjoy taking on challenges. If you have any new ventures or projects in mind, I would be delighted to be a part of them.😎`
   },
   skills_icons: {
     title: 'My Favorite Technologies!'
