@@ -1,5 +1,5 @@
 <template>
-  <div class="card-wrapper">
+  <div class="card-wrapper" :class="['card-back-color', { active }]">
     <h1>{{ duration }}</h1>
     <h3>{{ company }} - {{ position }}</h3>
     <p class="card-description">{{ description }}</p>
@@ -30,11 +30,25 @@ defineProps({
   description: {
     type: String,
     required: true
+  },
+  active: {
+    type: Boolean,
+    required: false,
+    default: false,
   }
 })
 </script>
 
 <style scoped>
+
+.card-back-color {
+  background-color: var(--element-color);
+}
+
+.card-back-color.active {
+  background-color: var(--cristal-box-shadow-color);
+}
+
 .card-wrapper {
   display: flex;
   flex-direction: column;

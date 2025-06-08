@@ -10,6 +10,7 @@
         :duration="work.duration"
         :description="work.description"
         :tech="work.tech"
+        :active="work.active"
       />
     </div>
   </div>
