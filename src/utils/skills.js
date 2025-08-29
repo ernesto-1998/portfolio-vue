@@ -14,10 +14,9 @@ const skills = {
   backend: [
     'Node',
     'Express',
+    'Nest JS',
     'Typescript',
     'Python',
-    'Django',
-    'FastApi',
     'Postgresql',
     'MongoDB',
     'Firebase'

@@ -39,10 +39,10 @@ const skills_icons = [
     name: 'bootstrap',
     text: 'Bootstrap'
   },
-  {
+/*   {
     name: 'csharp',
     text: 'C#'
-  },
+  }, */
   {
     name: 'node',
     text: 'Node'
@@ -51,15 +51,19 @@ const skills_icons = [
     name: 'express',
     text: 'Express'
   },
- /*  {
+  {
+    name: 'nest',
+    text: 'Nest'
+  },
+  {
     name: 'python',
     text: 'Python'
   },
-  {
+/*   {
     name: 'django',
     text: 'Django'
-  },
-  {
+  }, */
+/*   {
     name: 'fastapi',
     text: 'FastApi'
   }, */

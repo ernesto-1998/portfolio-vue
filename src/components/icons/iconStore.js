@@ -20,6 +20,7 @@ import TailwindIcon from './skills/TailwindIcon.vue'
 import BootstrapIcon from './skills/BootstrapIcon.vue'
 import NodeIcon from './skills/NodeIcon.vue'
 import ExpressIcon from './skills/ExpressIcon.vue'
+import NestIcon from './skills/NestIcon.vue'
 import PythonIcon from './skills/PythonIcon.vue'
 import DjangoIcon from './skills/DjangoIcon.vue'
 import FastapiIcon from './skills/FastapiIcon.vue'
@@ -55,6 +56,7 @@ export const store = {
   bootstrap: BootstrapIcon,
   node: NodeIcon,
   express: ExpressIcon,
+  nest: NestIcon,
   python: PythonIcon,
   django: DjangoIcon,
   fastapi: FastapiIcon,

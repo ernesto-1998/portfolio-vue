@@ -52,7 +52,7 @@ const projects = [
     url: 'https://anfdelsur.netlify.app',
     image: '/projects/software-contable.jpg',
     description:
-      'Software Contable is a powerful financial analysis tool designed for desktop usage. It provides detailed financial insights by analyzing 10 financial statements, generating key financial ratios, vertical and horizontal analysis, and DuPont analysis. The intuitive interface includes interactive graphics to visualize financial data. Developed with Vue 3 and Quasar framework for a modern user experience.',
+      'Software Contable is a powerful financial analysis tool designed for desktop usage. Currently it analyze the financial information of DelSur company as an example. It provides detailed financial insights by analyzing 10 financial statements, generating key financial ratios, vertical and horizontal analysis, and DuPont analysis. The intuitive interface includes interactive graphics to visualize financial data. Developed with Vue 3 and Quasar framework for a modern user experience.',
     tech: ['Html', 'Css', 'Javascript', 'Vue 3', 'Quasar', 'Vue-router'],
     type: PROJECT_TYPE.FRONTEND
   },
