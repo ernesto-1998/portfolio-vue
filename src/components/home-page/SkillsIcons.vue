@@ -1,6 +1,6 @@
 <template>
   <div class="icons-container">
-    <div class="title-wrapper">
+    <div class="title-wrapper" v-if="title != ''">
       <h2>{{ title }}</h2>
     </div>
     <ul class="icons-list">
@@ -14,8 +14,6 @@
 
 <script setup>
 import { ref } from 'vue'
-
-import skills_icons from '@/utils/skills-icons.js'
 import BaseIcon from '../icons/BaseIcon.vue'
 
 const size = ref(50)
@@ -23,7 +21,11 @@ const size = ref(50)
 defineProps({
   title: {
     type: String,
-    default: 'My Favorite Technologies'
+    default: ''
+  },
+  skills_icons: {
+    type: Array,
+    required: true
   }
 })
 </script>

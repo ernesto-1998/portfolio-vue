@@ -13,7 +13,7 @@
         <education-info :object="props.languages" />
         <social-networks :back-color="false" />
       </div>
-      <skills-icons :title="props['skills_icons'].title" />
+      <skills-icons :title="props['skills_icons'].title" :skills_icons="skills_icons"/>
     </div>
   </div>
 </template>
@@ -27,7 +27,9 @@ import ImageTitle from '@/components/drawer-profile/ImageTitle.vue'
 import EducationInfo from '@/components/drawer-profile/EducationInfo.vue'
 import SocialNetworks from '@/components/drawer-profile/SocialNetworks.vue'
 
-const EXPERIENCE_YEARS = new Date().getFullYear() - 2020; 
+import skills_icons from '@/utils/skills-icons.js'
+
+const EXPERIENCE_YEARS = new Date().getFullYear() - 2021; 
 
 const props = {
   title_generic: {

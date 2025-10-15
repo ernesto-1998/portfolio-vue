@@ -11,7 +11,7 @@
         <h1>{{ props.project.title }}</h1>
         <p class="project-page_text">{{ props.project.description || 'Web App' }}</p>
         <div class="project-page_tech">
-          <education-info :object="techObject" />
+          <skills-icons :title="techObject.title" :skills_icons="techObject.items"/>
         </div>
         <div class="project-page_button">
           <link-button
@@ -27,7 +27,7 @@
 
 <script setup>
 import LinkButton from '@/components/LinkButton.vue'
-import EducationInfo from '@/components/drawer-profile/EducationInfo.vue'
+import SkillsIcons from '@/components/home-page/SkillsIcons.vue'
 
 const props = defineProps({
   project: {
@@ -41,7 +41,7 @@ const props = defineProps({
 })
 
 const techObject = {
-  title: 'Tech:',
+  title: 'Technologies used:',
   items: props.project.tech
 }
 </script>
