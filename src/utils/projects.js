@@ -2,6 +2,60 @@ import PROJECT_TYPE from '@/enums/project-type.js'
 
 const projects = [
   {
+  title: 'Recipe Sharing Rest API',
+  url: 'https://github.com/ernesto-1998/recipe-sharing-nestapp',
+  image: '/projects/recipes-nest-rest-api.png',
+  description:
+    "A RESTful API built with NestJS for sharing and managing cooking recipes. It features user authentication (JWT with future OAuth2 support), detailed logging using a PostgreSQL logger module, and asynchronous context tracking for enriched metadata in logs. Recipes can include categories, ingredients, and tags, with advanced filtering and pagination. The API is fully documented with Swagger and designed with modularity and scalability in mind. STILL IN DEVELOPMENT.",
+  tech: [
+    {
+      name: 'nest',
+      text: 'NestJS'
+    },
+    {
+      name: 'node',
+      text: 'Node.js'
+    },
+    {
+      name: 'ts',
+      text: 'TypeScript'
+    },
+    {
+      name: 'mongo',
+      text: 'MongoDB'
+    },
+    {
+      name: 'postgres',
+      text: 'PostgreSQL'
+    },
+    {
+      name: 'swagger',
+      text: 'Swagger'
+    },
+    {
+      name: 'js',
+      text: 'JWT Auth'
+    },
+    {
+      name: 'docker',
+      text: 'Docker'
+    },
+    {
+      name: 'git',
+      text: 'Git'
+    },
+    {
+      name: 'jest',
+      text: 'Jest Testing'
+    },
+    {
+      name: 'docker',
+      text: 'Docker Compose'
+    }
+  ],
+  type: PROJECT_TYPE.BACKEND
+},
+  {
     title: 'Los Palacios Bakery',
     url: 'https://los-palacios.netlify.app/',
     image: '/projects/panaderia-los-palacios.jpg',

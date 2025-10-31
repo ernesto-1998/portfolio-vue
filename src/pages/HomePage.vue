@@ -11,7 +11,7 @@
       <div class="education-social_wrapper display">
         <education-info :object="props.education" />
         <education-info :object="props.languages" />
-        <social-networks :back-color="false" />
+        <social-networks :back-color="false" />    
       </div>
       <skills-icons :title="props['skills_icons'].title" :skills_icons="skills_icons"/>
     </div>

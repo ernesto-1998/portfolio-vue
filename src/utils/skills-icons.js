@@ -16,6 +16,10 @@ const skills_icons = [
     text: 'Typescript'
   },
   {
+    name: 'jest',
+    text: 'Jest'
+  },
+  {
     name: 'angular',
     text: 'Angular'
   },
@@ -56,6 +60,10 @@ const skills_icons = [
     text: 'Nest'
   },
   {
+    name: 'swagger',
+    text: 'Swagger'
+  },
+  {
     name: 'python',
     text: 'Python'
   },
@@ -90,7 +98,7 @@ const skills_icons = [
   {
     name: 'linux',
     text: 'Linux'
-  }
+  },
 ]
 
 export default skills_icons

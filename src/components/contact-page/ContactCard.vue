@@ -1,13 +1,14 @@
 <template>
   <ul class="contact-card">
     <li v-for="(item, index) in props.array" :key="index" class="contact-item">
-      <base-icon :icon-name="item.icon_name" :color="item.color" :size="size" />
+      <base-icon :icon-name="item.icon_name" :color="item.color" :size="item.size" />
       <span>{{ item.text }}</span>
     </li>
   </ul>
 </template>
 <script setup>
 import BaseIcon from '../icons/BaseIcon.vue'
+
 const props = defineProps({
   array: {
     type: Array,
