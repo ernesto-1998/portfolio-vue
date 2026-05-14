@@ -1,4 +1,80 @@
 const skills_icons = [
+/*   {
+    name: 'django',
+    text: 'Django'
+  }, */
+/*   {
+    name: 'fastapi',
+    text: 'FastApi'
+  }, */
+  {
+    name: 'node',
+    text: 'NodeJS'
+  },
+  {
+    name: 'express',
+    text: 'Express'
+  },
+  {
+    name: 'nest',
+    text: 'NestJS'
+  },
+  {
+    name: 'python',
+    text: 'Python'
+  },
+  {
+    name: 'postgres',
+    text: 'Postgres'
+  },
+  {
+    name: 'rabbitmq',
+    text: 'RabbitMQ'
+  },
+  {
+    name: 'oauth2',
+    text: 'OAuth2'
+  },
+  {
+    name: 'mongo',
+    text: 'MongoDB'
+  },
+  {
+    name: 'firebase',
+    text: 'Firebase'
+  },
+  {
+    name: 'swagger',
+    text: 'Swagger'
+  },
+/*   {
+    name: 'csharp',
+    text: 'C#'
+  }, */
+  {
+    name: 'docker',
+    text: 'Docker'
+  },
+  {
+    name: 'linux',
+    text: 'Linux'
+  },
+  {
+    name: 'git',
+    text: 'Git'
+  },
+  {
+    name: 'jest',
+    text: 'Jest'
+  },
+  {
+    name: 'ts',
+    text: 'Typescript'
+  },
+  {
+    name: 'js',
+    text: 'Javascript'
+  },
   {
     name: 'html5',
     text: 'HTML5'
@@ -6,18 +82,6 @@ const skills_icons = [
   {
     name: 'css3',
     text: 'CSS3'
-  },
-  {
-    name: 'js',
-    text: 'Javascript'
-  },
-  {
-    name: 'ts',
-    text: 'Typescript'
-  },
-  {
-    name: 'jest',
-    text: 'Jest'
   },
   {
     name: 'angular',
@@ -42,62 +106,6 @@ const skills_icons = [
   {
     name: 'bootstrap',
     text: 'Bootstrap'
-  },
-/*   {
-    name: 'csharp',
-    text: 'C#'
-  }, */
-  {
-    name: 'node',
-    text: 'Node'
-  },
-  {
-    name: 'express',
-    text: 'Express'
-  },
-  {
-    name: 'nest',
-    text: 'Nest'
-  },
-  {
-    name: 'swagger',
-    text: 'Swagger'
-  },
-  {
-    name: 'python',
-    text: 'Python'
-  },
-/*   {
-    name: 'django',
-    text: 'Django'
-  }, */
-/*   {
-    name: 'fastapi',
-    text: 'FastApi'
-  }, */
-  {
-    name: 'postgres',
-    text: 'Postgres'
-  },
-  {
-    name: 'mongo',
-    text: 'MongoDB'
-  },
-  {
-    name: 'firebase',
-    text: 'Firebase'
-  },
-  {
-    name: 'git',
-    text: 'Git'
-  },
-  {
-    name: 'docker',
-    text: 'Docker'
-  },
-  {
-    name: 'linux',
-    text: 'Linux'
   },
 ]
 

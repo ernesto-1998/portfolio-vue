@@ -6,7 +6,7 @@ const projects = [
   url: 'https://github.com/ernesto-1998/recipe-sharing-nestapp',
   image: '/projects/recipes-nest-rest-api.png',
   description:
-    "A RESTful API built with NestJS for sharing and managing cooking recipes. It features user authentication (JWT with future OAuth2 support), detailed logging using a PostgreSQL logger module, and asynchronous context tracking for enriched metadata in logs. Recipes can include categories, ingredients, and tags, with advanced filtering and pagination. The API is fully documented with Swagger and designed with modularity and scalability in mind. STILL IN DEVELOPMENT.",
+    "A NestJS RESTful API with a modular architecture for sharing and managing cooking recipes. Features JWT + OAuth2 (Google) authentication, role-based access control, and privacy settings. Recipes support categories, ingredients, tags, and images with paginated search. Includes comments and ratings. Dual-database (MongoDB + PostgreSQL) connected via RabbitMQ for event-driven logging with async context tracking. Fully documented with Swagger and containerized with Docker. STILL IN DEVELOPMENT.",
   tech: [
     {
       name: 'nest',
@@ -29,12 +29,20 @@ const projects = [
       text: 'PostgreSQL'
     },
     {
+      name: 'rabbitmq',
+      text: 'RabbitMQ'
+    },
+    {
       name: 'swagger',
       text: 'Swagger'
     },
     {
       name: 'js',
       text: 'JWT Auth'
+    },
+    {
+      name: 'oauth2',
+      text: 'OAuth2'
     },
     {
       name: 'docker',
@@ -181,6 +189,10 @@ const projects = [
       {
         name: 'firebase',
         text: 'Firebase'
+      },
+      {
+        name: 'oauth2',
+        text: 'OAuth2'
       },
       {
         name: 'git',

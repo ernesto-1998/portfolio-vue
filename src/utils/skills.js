@@ -19,9 +19,13 @@ const skills = {
     'Python',
     'Postgresql',
     'MongoDB',
-    'Firebase'
+    'Firebase',
+    'RabbitMQ',
+    'OAuth2',
+    'Swagger',
+    'Jest'
   ],
-  devops: ['Git', 'Github flow', 'Github', 'Docker', 'Docker compose']
+  devops: ['Git', 'Github flow', 'Github', 'Docker', 'Docker compose', 'Linux']
 }
 
 export default skills

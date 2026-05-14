@@ -34,6 +34,8 @@ import AngularIcon from './skills/AngularIcon.vue'
 import CSharpIcon from './skills/CSharpIcon.vue'
 import SwaggerIcon from './skills/SwaggerIcon.vue'
 import JestIcon from './skills/JestIcon.vue'
+import RabbitmqIcon from './skills/RabbitmqIcon.vue'
+import Oauth2Icon from './skills/Oauth2Icon.vue'
 
 export const store = {
   github: GithubIcon,
@@ -72,4 +74,6 @@ export const store = {
   csharp: CSharpIcon,
   swagger: SwaggerIcon,
   jest: JestIcon,
+  rabbitmq: RabbitmqIcon,
+  oauth2: Oauth2Icon,
 }
