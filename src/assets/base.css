@@ -2,30 +2,29 @@
 
 :root {
   /* Colors for the page */
-  --layout-color: rgb(220, 242, 241);
-  --page-color: rgba(127, 199, 217, 0.3);
-  --backtitle-color: rgb(15, 16, 53);
-  --backtitle-v2-color: rgba(15, 16, 53, 0.8);
-  --element-color: rgb(54, 84, 134);
-  --cristal-main-color: rgba(255, 255, 255, 0.15);
-  --cristal-border-color: rgba(255, 255, 255, 0.18);
-  --cristal-box-shadow-color: rgba(255, 255, 255, 0.18);
+  --layout-color: rgb(255, 255, 255);
+  --page-color: rgba(30, 16, 78, 0.9);
+  --backtitle-color: rgb(30, 16, 78);
+  --backtitle-v2-color: rgba(30, 16, 78, 0.8);
+  --element-color: rgb(69, 46, 90);
+  --cristal-main-color: rgba(255, 255, 255, 0.08);
+  --cristal-border-color: rgba(255, 200, 92, 0.28);
+  --cristal-box-shadow-color: rgba(255, 101, 63, 0.2);
   --text-color: rgb(255, 255, 255);
+  --accent-color: rgb(255, 101, 63);
+  --accent-secondary-color: rgb(255, 200, 92);
   --linear-gradient: linear-gradient(
     45deg,
-    hsl(238deg 56% 13%) 0%,
-    hsl(239deg 63% 14%) 39%,
-    hsl(238deg 69% 14%) 54%,
-    hsl(238deg 76% 15%) 62%,
-    hsl(238deg 82% 15%) 67%,
-    hsl(238deg 88% 16%) 72%,
-    hsl(239deg 93% 16%) 79%,
-    hsl(239deg 100% 17%) 100%
+    rgb(30, 16, 78)  0%,
+    rgb(42, 24, 82)  30%,
+    rgb(54, 33, 86)  55%,
+    rgb(63, 40, 89)  75%,
+    rgb(69, 46, 90)  100%
   );
 
-  --backend-tag-color: rgb(231, 0, 0);
-  --frontend-tag-color: rgb(17, 150, 0);
-  --fullstack-tag-color: rgb(17, 0, 255);
+  --backend-tag-color: rgb(255, 101, 63);
+  --frontend-tag-color: rgb(255, 200, 92);
+  --fullstack-tag-color: rgb(69, 46, 90);
 
   /* Borders for elements */
   --border-radius-page: 16px;
