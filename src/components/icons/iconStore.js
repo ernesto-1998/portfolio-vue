@@ -36,6 +36,11 @@ import SwaggerIcon from './skills/SwaggerIcon.vue'
 import JestIcon from './skills/JestIcon.vue'
 import RabbitmqIcon from './skills/RabbitmqIcon.vue'
 import Oauth2Icon from './skills/Oauth2Icon.vue'
+import RedisIcon from './skills/RedisIcon.vue'
+import TimescaleIcon from './skills/TimescaleIcon.vue'
+import FastifyIcon from './skills/FastifyIcon.vue'
+import PrometheusIcon from './skills/PrometheusIcon.vue'
+import GrafanaIcon from './skills/GrafanaIcon.vue'
 
 export const store = {
   github: GithubIcon,
@@ -76,4 +81,9 @@ export const store = {
   jest: JestIcon,
   rabbitmq: RabbitmqIcon,
   oauth2: Oauth2Icon,
+  redis: RedisIcon,
+  timescale: TimescaleIcon,
+  fastify: FastifyIcon,
+  prometheus: PrometheusIcon,
+  grafana: GrafanaIcon
 }

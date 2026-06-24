@@ -16,6 +16,10 @@ const skills_icons = [
     text: 'Express'
   },
   {
+    name: 'fastify',
+    text: 'Fastify'
+  },
+  {
     name: 'nest',
     text: 'NestJS'
   },
@@ -26,6 +30,14 @@ const skills_icons = [
   {
     name: 'postgres',
     text: 'Postgres'
+  },
+  {
+    name: 'timescale',
+    text: 'TimescaleDB'
+  },
+  {
+    name: 'redis',
+    text: 'Redis'
   },
   {
     name: 'rabbitmq',
@@ -46,6 +58,14 @@ const skills_icons = [
   {
     name: 'swagger',
     text: 'Swagger'
+  },
+  {
+    name: 'prometheus',
+    text: 'Prometheus'
+  },
+  {
+    name: 'grafana',
+    text: 'Grafana'
   },
 /*   {
     name: 'csharp',

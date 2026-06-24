@@ -2,6 +2,68 @@ import PROJECT_TYPE from '@/enums/project-type.js'
 
 const projects = [
   {
+  title: 'Financial Analytics Engine',
+  url: 'https://github.com/ernesto-1998/financial-watcher',
+  image: '/projects/financial-watcher.png',
+  description:
+    'A backend-focused financial analytics platform for ingesting market data, processing time-series events, calculating technical indicators, evaluating alert rules, and exposing results through REST, WebSocket, and observability dashboards. Built as a modular Node.js and TypeScript monolith with independent API, ingestion, processing, and alerts workers using Fastify, BullMQ, Redis, PostgreSQL/TimescaleDB, Prometheus, and Grafana.',
+  tech: [
+    {
+      name: 'node',
+      text: 'Node.js'
+    },
+    {
+      name: 'ts',
+      text: 'TypeScript'
+    },
+    {
+      name: 'fastify',
+      text: 'Fastify'
+    },
+    {
+      name: 'redis',
+      text: 'BullMQ'
+    },
+    {
+      name: 'postgres',
+      text: 'PostgreSQL'
+    },
+    {
+      name: 'timescale',
+      text: 'TimescaleDB'
+    },
+    {
+      name: 'redis',
+      text: 'Redis'
+    },
+    {
+      name: 'swagger',
+      text: 'Swagger'
+    },
+    {
+      name: 'prometheus',
+      text: 'Prometheus'
+    },
+    {
+      name: 'grafana',
+      text: 'Grafana'
+    },
+    {
+      name: 'docker',
+      text: 'Docker'
+    },
+    {
+      name: 'docker',
+      text: 'Docker Compose'
+    },
+    {
+      name: 'git',
+      text: 'Git'
+    }
+  ],
+  type: PROJECT_TYPE.BACKEND
+},
+  {
   title: 'Recipe Sharing Rest API',
   url: 'https://github.com/ernesto-1998/recipe-sharing-nestapp',
   image: '/projects/recipes-nest-rest-api.png',
