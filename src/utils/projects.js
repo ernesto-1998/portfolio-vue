@@ -2,6 +2,48 @@ import PROJECT_TYPE from '@/enums/project-type.js'
 
 const projects = [
   {
+    title: 'Mapa Audit Platform',
+    url: 'https://github.com/ernesto-1998/mapa-audit',
+    image: '/projects/mapa-audit.png',
+    description:
+      'An audit and business observability SDK for Node.js, published on npm as @tnet06/mapa-audit-sdk. It provides automatic request context capture, a structured and typed audit event model, built-in payload masking and size limits, and pluggable transports. It includes adapters for Express, Fastify, and NestJS, console and file transports, and an optional RabbitMQ publisher transport.',
+    tech: [
+      {
+        name: 'node',
+        text: 'Node.js'
+      },
+      {
+        name: 'ts',
+        text: 'TypeScript'
+      },
+      {
+        name: 'express',
+        text: 'Express'
+      },
+      {
+        name: 'fastify',
+        text: 'Fastify'
+      },
+      {
+        name: 'nest',
+        text: 'NestJS'
+      },
+      {
+        name: 'rabbitmq',
+        text: 'RabbitMQ'
+      },
+      {
+        name: 'jest',
+        text: 'Vitest'
+      },
+      {
+        name: 'git',
+        text: 'Git'
+      }
+    ],
+    type: PROJECT_TYPE.PLATFORM
+  },
+  {
   title: 'Financial Analytics Engine',
   url: 'https://github.com/ernesto-1998/financial-watcher',
   image: '/projects/financial-watcher.png',

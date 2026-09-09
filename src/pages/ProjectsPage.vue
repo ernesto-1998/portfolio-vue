@@ -9,6 +9,7 @@
           <option value="FRONTEND">Frontend</option>
           <option value="BACKEND">Backend</option>
           <option value="FULLSTACK">Fullstack</option>
+          <option value="PLATFORM">Platform</option>
         </select>
       </div>
     </div>

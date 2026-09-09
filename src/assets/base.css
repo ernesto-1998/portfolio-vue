@@ -25,6 +25,7 @@
   --backend-tag-color: rgb(255, 101, 63);
   --frontend-tag-color: rgb(255, 200, 92);
   --fullstack-tag-color: rgb(69, 46, 90);
+  --platform-tag-color: rgb(42, 180, 164);
 
   /* Borders for elements */
   --border-radius-page: 16px;

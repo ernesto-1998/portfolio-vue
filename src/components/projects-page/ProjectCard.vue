@@ -39,7 +39,9 @@ const defineBack = computed(() =>
       ? 'var(--backend-tag-color)'
       : props.card.type === PROJECT_TYPE.FRONTEND
         ? 'var(--frontend-tag-color)'
-        : 'var(--fullstack-tag-color)'
+        : props.card.type === PROJECT_TYPE.PLATFORM
+          ? 'var(--platform-tag-color)'
+          : 'var(--fullstack-tag-color)'
 )
 </script>
 
