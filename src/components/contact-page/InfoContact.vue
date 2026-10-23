@@ -1,6 +1,6 @@
 <template>
   <div class="info-container">
-    <title-generic :title="'My social networks!'" :background="false" />
+    <title-generic :title="'My social networks!'" :background="false" :level="2" />
     <social-networks :back-color="false" />
     <contact-card :array="contact_info" />
   </div>

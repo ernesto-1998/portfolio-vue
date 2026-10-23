@@ -40,13 +40,15 @@ watch(filterValue, (newValue) => {
 <style scoped>
 .projects-body {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
   gap: var(--page-gap);
 }
 
 .title-filter_wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
 }
 
 .select-filter_wrapper {
@@ -58,18 +60,18 @@ watch(filterValue, (newValue) => {
 
 .filter-title {
   color: var(--layout-color);
-  font-family: var(--text-font);
-  font-size: 20px;
+  font-size: var(--type-secondary);
+  font-weight: var(--weight-medium);
 }
 
 .select-filter {
   max-width: 250px;
   border-radius: var(--border-radius-title);
-  font-size: 15px;
+  font-size: var(--type-secondary);
+  font-weight: var(--weight-medium);
   background-color: var(--element-color);
   color: var(--layout-color);
   padding: 8px;
-  font-family: var(--text-font);
 }
 
 @media (max-width: 768px) {

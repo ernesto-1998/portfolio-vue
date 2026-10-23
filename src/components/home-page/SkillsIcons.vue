@@ -1,12 +1,12 @@
 <template>
   <div class="icons-container">
     <div class="title-wrapper" v-if="title != ''">
-      <h2>{{ title }}</h2>
+      <h2 class="type-section-title">{{ title }}</h2>
     </div>
     <ul class="icons-list">
       <li v-for="icon in skills_icons" :key="icon.name" class="icon-item">
         <base-icon :icon-name="icon.name" :size="size" />
-        <span>{{ icon.text }}</span>
+        <span class="type-secondary">{{ icon.text }}</span>
       </li>
     </ul>
   </div>
@@ -39,9 +39,8 @@ defineProps({
 }
 
 .title-wrapper > h2 {
-  display: inline;
-  font-family: var(--title-font);
-  font-weight: 700;
+  display: inline-block;
+  max-width: 100%;
   color: var(--layout-color);
   position: relative;
 }
@@ -68,7 +67,8 @@ defineProps({
   flex-direction: column;
   align-items: center;
   gap: 5px;
-  font-family: var(--text-font);
+  text-align: center;
+  overflow-wrap: anywhere;
   transition: 0.2s ease-in-out;
 }
 

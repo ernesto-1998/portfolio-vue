@@ -1,8 +1,13 @@
 <template>
   <div class="title-container">
-    <h1 class="title" :style="{ backgroundColor: defineBack }">
+    <component
+      :is="props.level === 1 ? 'h1' : 'h2'"
+      class="title"
+      :class="props.level === 1 ? 'type-page-title' : 'type-section-title'"
+      :style="{ backgroundColor: defineBack }"
+    >
       {{ props.title }}
-    </h1>
+    </component>
   </div>
 </template>
 
@@ -16,6 +21,10 @@ const props = defineProps({
   background: {
     type: Boolean,
     default: true
+  },
+  level: {
+    type: Number,
+    default: 1
   }
 })
 
@@ -28,12 +37,10 @@ const defineBack = computed(() => (props.background ? 'var(--element-color)' : '
 }
 .title {
   display: inline;
-  font-family: var(--text-font);
   color: var(--layout-color);
   padding: 5px 15px;
   text-align: center;
   border-radius: var(--border-radius-page);
-  font-size: 27px;
 }
 
 @media (max-width: 1024px) {

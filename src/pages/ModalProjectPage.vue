@@ -8,10 +8,10 @@
         <img class="image" :src="props.project.image" alt="" />
       </div>
       <div class="project-page_description">
-        <h1>{{ props.project.title }}</h1>
-        <p class="project-page_text">{{ props.project.description || 'Web App' }}</p>
+        <h1 class="type-page-title">{{ props.project.title }}</h1>
+        <p class="project-page_text type-body">{{ props.project.description || 'Web App' }}</p>
         <div class="project-page_tech">
-          <skills-icons :title="techObject.title" :skills_icons="techObject.items"/>
+          <skills-icons :title="techObject.title" :skills_icons="techObject.items" />
         </div>
         <div class="project-page_button">
           <link-button
@@ -63,11 +63,13 @@ const techObject = {
 }
 
 .app-type_tag {
-  font-family: var(--text-font);
   padding: 10px 20px;
   position: absolute;
   transform: translateX(-10px) rotate(-7grad);
   clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+  font-size: var(--type-small);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-compact);
 }
 
 .project-page_description {
@@ -86,27 +88,20 @@ const techObject = {
 h1 {
   width: 100%;
   padding-top: 5px;
-  font-size: 35px;
   text-align: center;
-  font-family: var(--title-font);
-  font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .project-page_text {
   background-color: var(--element-color);
   border-radius: var(--border-radius-page);
-  line-height: 30px;
   padding: 20px;
-  max-height: 250px;
-  font-family: var(--text-font);
   text-align: center;
-  overflow-y: auto;
+  overflow-wrap: anywhere;
 }
 
 .project-page_tech {
   padding: 5px;
-  font-family: var(--text-font);
-  line-height: 25px;
 }
 
 .project-page_button {

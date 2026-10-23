@@ -50,10 +50,9 @@ import { CV_URL } from '@/utils/cv.js'
   border-radius: var(--border-radius-page);
   background-color: #e3d4ff;
   color: var(--backtitle-color);
-  font-family: var(--title-font);
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 1.2;
+  font-size: var(--type-subtitle);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-heading);
   transition:
     background-color 0.2s ease,
     transform 0.2s ease;

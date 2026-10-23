@@ -1,6 +1,6 @@
 <template>
   <div class="education-container">
-    <h3>{{ object.title }}</h3>
+    <h3 class="type-subtitle">{{ object.title }}</h3>
     <div class="separator"></div>
     <ul class="education-list">
       <li v-for="(item, index) in object.items" :key="index">{{ item }}</li>
@@ -18,10 +18,10 @@ defineProps({
 <style scoped>
 .education-container {
   max-width: 250px;
+  width: 100%;
   padding: 10px 12px;
   background-color: var(--backtitle-color);
   border-radius: var(--border-radius-title);
-  font-family: var(--text-font);
   color: var(--layout-color);
 }
 
@@ -38,7 +38,9 @@ defineProps({
   display: flex;
   flex-direction: column;
   gap: 10px;
-  font-size: 13px;
+  font-size: var(--type-secondary);
+  line-height: var(--leading-compact);
+  overflow-wrap: anywhere;
 }
 
 .education-list > li::before {

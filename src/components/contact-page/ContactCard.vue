@@ -24,7 +24,6 @@ const props = defineProps({
   background-color: var(--element-color);
   border-radius: var(--border-radius-page);
   padding: var(--page-gap);
-  font-family: var(--title-font);
   color: var(--layout-color);
 }
 
@@ -33,5 +32,6 @@ const props = defineProps({
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
+  overflow-wrap: anywhere;
 }
 </style>

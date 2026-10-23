@@ -3,7 +3,7 @@
     <li v-for="item in nav" :key="item.name" class="nav-item">
       <router-link :to="{ name: item.link }" class="nav-link">
         <base-icon :icon-name="item.name" color="white" size="30" />
-        <h3>{{ item.title }}</h3>
+        <span>{{ item.title }}</span>
       </router-link>
     </li>
   </ul>
@@ -36,9 +36,10 @@ import BaseIcon from '../icons/BaseIcon.vue'
   background-color: var(--backtitle-color);
   border-radius: var(--border-radius-title);
   border: 2px solid var(--layout-color);
-  font-family: var(--title-font);
-  font-weight: 700;
-  font-size: 13px;
+  font-size: var(--type-secondary);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-compact);
+  text-align: center;
   color: var(--layout-color);
   transition: 0.3s ease-in-out;
 }
@@ -58,8 +59,15 @@ import BaseIcon from '../icons/BaseIcon.vue'
   .nav-link {
     min-width: 50px;
   }
-  .nav-link > h3 {
+  .nav-link > span {
     display: none;
+  }
+}
+
+@media (max-width: 280px) {
+  .nav-container {
+    flex-wrap: wrap;
+    gap: 6px;
   }
 }
 </style>

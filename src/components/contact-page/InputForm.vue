@@ -40,18 +40,20 @@ const getPadding = computed(() => {
 }
 
 input {
-  font-family: var(--text-font);
   width: 100%;
-  height: 35px;
+  min-height: 44px;
+  padding-block: 9px;
   background-color: var(--backtitle-color);
   color: var(--layout-color);
+  font-size: var(--type-secondary);
+  line-height: var(--leading-compact);
   border: none;
   outline: none;
   transition: 0.3s ease-in-out;
 }
 
 input::placeholder {
-  color: var(--layout-color);
+  color: #d9b8ff;
 }
 
 input:focus {

@@ -1,6 +1,6 @@
 <template>
   <div class="form-container">
-    <h1>Send me an email!</h1>
+    <h2 class="type-section-title">Send me an email!</h2>
     <form @submit="senData" ref="form" method="POST">
       <input type="hidden" name="access_key" :value="YOUR_ACCESS_KEY_HERE" />
       <div class="fullname-wrapper">
@@ -102,12 +102,10 @@ const senData = (e) => {
   background-color: var(--element-color);
   padding: 20px;
   color: var(--layout-color);
-  font-family: var(--title-font);
   border-radius: var(--border-radius-page);
 }
 
-h1 {
-  font-weight: 700;
+h2 {
   text-align: center;
 }
 
@@ -129,14 +127,16 @@ form {
 }
 
 button {
+  max-width: 100%;
   padding: 15px 30px;
   background-color: var(--backtitle-color);
   border-radius: var(--border-radius-title);
   border: 1px solid var(--layout-color);
   color: var(--layout-color);
-  font-family: var(--title-font);
-  font-weight: 700;
-  font-size: 20px;
+  font-size: var(--type-secondary);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-compact);
+  overflow-wrap: anywhere;
   transition: 0.3s ease-in;
 }
 

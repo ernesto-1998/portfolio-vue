@@ -18,11 +18,13 @@ const props = defineProps({
 <style scoped>
 a {
   background-color: var(--frontend-tag-color);
-  padding: 10px 75px;
+  padding: 10px 24px;
   border-radius: var(--border-radius-page);
-  font-family: var(--title-font);
-  font-size: 20px;
-  font-weight: 700;
+  font-size: var(--type-secondary);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-compact);
+  text-align: center;
+  overflow-wrap: anywhere;
 }
 
 a:hover {

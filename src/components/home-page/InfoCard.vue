@@ -1,10 +1,10 @@
 <template>
   <div class="info-container">
-    <p>{{ text }}</p>
+    <p class="type-body">{{ text }}</p>
     <ul class="skills-list">
-      <li class="skill-item"><span>Frontend: </span> <br>{{ getFrontend }}</li>
-      <li class="skill-item"><span>Backend: </span> <br>{{ getBackend }}</li>
-      <li class="skill-item"><span>Devops: </span> <br>{{ getDevops }}</li>
+      <li class="skill-item"><span class="type-subtitle">Frontend:</span> {{ getFrontend }}</li>
+      <li class="skill-item"><span class="type-subtitle">Backend:</span> {{ getBackend }}</li>
+      <li class="skill-item"><span class="type-subtitle">Devops:</span> {{ getDevops }}</li>
     </ul>
   </div>
 </template>
@@ -37,13 +37,8 @@ const getDevops = computed(() => {
   padding: 15px;
   background-color: var(--element-color);
   color: var(--layout-color);
-  font-family: var(--text-font);
   border-radius: var(--border-radius-page);
   height: fit-content;
-}
-
-.info-container > p {
-  line-height: 2;
 }
 
 .skills-list {
@@ -57,8 +52,7 @@ const getDevops = computed(() => {
 }
 
 .skill-item > span {
-  font-weight: bold;
-  font-size: 20px;
-  margin-bottom: 15px;
+  display: block;
+  margin-bottom: 4px;
 }
 </style>

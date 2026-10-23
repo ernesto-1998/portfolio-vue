@@ -47,9 +47,9 @@ img {
 }
 
 .profile-title > h2 {
-  font-family: var(--title-font);
-  font-weight: 500;
-  font-size: 20px;
+  font-size: var(--type-subtitle);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-heading);
 }
 
 @media (max-width: 1024px) {
@@ -66,7 +66,7 @@ img {
   }
 
   .profile-title > h2 {
-    font-size: 30px;
+    font-size: clamp(22px, 5vw, 30px);
   }
 }
 </style>

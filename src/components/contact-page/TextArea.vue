@@ -17,11 +17,12 @@ const props = defineProps({
 </script>
 <style scoped>
 textarea {
-  font-family: var(--text-font);
   width: 100%;
   padding: 10px;
   background-color: var(--backtitle-color);
   color: var(--layout-color);
+  font-size: var(--type-secondary);
+  line-height: var(--leading-body);
   border: none;
   outline: none;
   transition: 0.3s ease-in-out;
@@ -29,7 +30,7 @@ textarea {
 }
 
 textarea::placeholder {
-  color: var(--layout-color);
+  color: #d9b8ff;
 }
 
 textarea:focus {

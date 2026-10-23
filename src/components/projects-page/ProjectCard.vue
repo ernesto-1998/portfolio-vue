@@ -10,8 +10,8 @@
     </div>
     <img :src="props.card.image" alt="Web app project" />
     <div class="text-wrapper">
-      <h1>{{ props.card.title }}</h1>
-      <p class="description">{{ props.card.description || 'Web App' }}</p>
+      <h2 class="type-card-title">{{ props.card.title }}</h2>
+      <p class="description type-body">{{ props.card.description || 'Web App' }}</p>
     </div>
   </a>
 </template>
@@ -49,7 +49,6 @@ const defineBack = computed(() =>
 .card-container {
   position: relative;
   transition: 0.3s ease-in-out;
-  font-family: var(--text-font);
   background-color: var(--element-color);
 }
 
@@ -62,25 +61,23 @@ const defineBack = computed(() =>
   position: absolute;
   transform: translateX(-10px) rotate(-7grad);
   clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+  font-size: var(--type-small);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-compact);
 }
 
 img {
   min-height: 200px;
 }
 
-h1 {
+h2 {
   width: 100%;
   padding-top: 5px;
   text-align: center;
-  font-family: var(--title-font);
-  font-weight: 700;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
+  overflow-wrap: anywhere;
 }
 
-h1::before {
+h2::before {
   content: '🧑‍💻';
   margin-right: 10px;
 }
@@ -88,13 +85,8 @@ h1::before {
 .description {
   padding: 5px 10px;
   margin-top: 10px;
-  font-family: var(--text-font);
   text-align: center;
-  overflow: hidden;
-  text-overflow: clip;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+  overflow-wrap: anywhere;
 }
 
 .card-container:hover {

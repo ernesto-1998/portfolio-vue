@@ -2,16 +2,16 @@
   <article class="work-card">
     <header class="card-header">
       <div class="job-heading">
-        <h2>{{ company }}</h2>
-        <h3>{{ position }}</h3>
+        <h2 class="type-card-title">{{ company }}</h2>
+        <h3 class="type-subtitle">{{ position }}</h3>
       </div>
       <div class="job-meta">
-        <p class="duration">{{ duration }}</p>
-        <span v-if="promotedAfterSixMonths" class="promotion">Promoted after 6 months</span>
+        <p class="duration type-secondary">{{ duration }}</p>
+        <span v-if="promotedAfterSixMonths" class="promotion type-ui">Promoted after 6 months</span>
       </div>
     </header>
 
-    <ul class="responsibilities">
+    <ul class="responsibilities type-body">
       <li v-for="responsibility in responsibilities" :key="responsibility">
         {{ responsibility }}
       </li>
@@ -42,7 +42,6 @@ defineProps({
   border-radius: var(--border-radius-page);
   background-color: var(--backtitle-v2-color);
   color: var(--layout-color);
-  font-family: var(--title-font);
 }
 
 .card-header {
@@ -56,18 +55,9 @@ defineProps({
   min-width: 0;
 }
 
-.job-heading h2 {
-  font-size: clamp(26px, 3vw, 34px);
-  font-weight: 700;
-  line-height: 1.2;
-}
-
 .job-heading h3 {
   margin-top: 2px;
   color: #d9b8ff;
-  font-size: 21px;
-  font-weight: 600;
-  line-height: 1.3;
 }
 
 .job-meta {
@@ -76,14 +66,14 @@ defineProps({
   align-items: flex-end;
   gap: 12px;
   flex: none;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .duration {
   color: #d9b8ff;
-  font-size: 17px;
-  font-weight: 600;
-  line-height: 1.4;
   text-align: right;
+  overflow-wrap: anywhere;
 }
 
 .promotion {
@@ -92,17 +82,15 @@ defineProps({
   border-radius: 10px;
   background-color: var(--cristal-main-color);
   color: #e9d7ff;
-  font-size: 14px;
-  line-height: 1.4;
+  font-size: var(--type-small);
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .responsibilities {
   margin-top: 20px;
   padding-left: 24px;
   list-style: disc;
-  font-size: 17px;
-  font-weight: 400;
-  line-height: 1.6;
 }
 
 .responsibilities li {
@@ -130,8 +118,11 @@ defineProps({
   border: 1px solid #7954a5;
   border-radius: 10px;
   background-color: var(--cristal-main-color);
-  font-size: 14px;
-  line-height: 1.4;
+  font-size: var(--type-small);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-compact);
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 640px) {

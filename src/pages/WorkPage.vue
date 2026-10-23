@@ -1,6 +1,6 @@
 <template>
   <div class="page-container">
-    <h1 class="work-title">Work Experience</h1>
+    <h1 class="work-title type-page-title">Work Experience</h1>
     <div class="work-body">
       <work-card
         v-for="work in works"
@@ -25,10 +25,6 @@ import WorkCard from '@/components/work-page/WorkCard.vue'
 <style scoped>
 .work-title {
   color: var(--layout-color);
-  font-family: var(--title-font);
-  font-size: clamp(32px, 4vw, 42px);
-  font-weight: 700;
-  line-height: 1.2;
 }
 
 .work-body {

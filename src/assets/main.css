@@ -7,7 +7,6 @@ body {
 #app {
   max-width: 1440px;
   margin: 0 auto;
-  font-weight: normal;
 }
 
 img {
@@ -23,6 +22,12 @@ a {
   display: block;
   text-decoration: none;
   color: var(--layout-color);
+}
+
+.swal2-popup {
+  font-family: var(--font-family);
+  font-size: var(--type-body);
+  line-height: var(--leading-body);
 }
 
 .page-container {
