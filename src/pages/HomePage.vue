@@ -5,6 +5,7 @@
       :profile-title="props['image_title'].profileTitle"
       class="display"
     />
+    <cv-link class="display" />
     <title-generic :title="props['title_generic'].title" />
     <div class="home-body">
       <info-card :text="props['info_card'].text" />
@@ -24,6 +25,7 @@ import TitleGeneric from '@/components/TitleGeneric.vue'
 import InfoCard from '@/components/home-page/InfoCard.vue'
 import SkillsIcons from '@/components/home-page/SkillsIcons.vue'
 import ImageTitle from '@/components/drawer-profile/ImageTitle.vue'
+import CvLink from '@/components/drawer-profile/CvLink.vue'
 import EducationInfo from '@/components/drawer-profile/EducationInfo.vue'
 import SocialNetworks from '@/components/drawer-profile/SocialNetworks.vue'
 

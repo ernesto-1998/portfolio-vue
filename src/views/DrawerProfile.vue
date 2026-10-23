@@ -1,6 +1,7 @@
 <template>
   <aside>
     <image-title :img-url="props.imgUrl" :profile-title="props.profileTitle" />
+    <cv-link />
     <social-networks />
     <education-info :object="props.education" />
   </aside>
@@ -10,6 +11,7 @@
 import { reactive } from 'vue'
 
 import ImageTitle from '@/components/drawer-profile/ImageTitle.vue'
+import CvLink from '@/components/drawer-profile/CvLink.vue'
 import SocialNetworks from '@/components/drawer-profile/SocialNetworks.vue'
 import EducationInfo from '@/components/drawer-profile/EducationInfo.vue'
 
