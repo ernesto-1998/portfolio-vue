@@ -3,10 +3,10 @@
     <section>
       <nav-menu />
     </section>
-    <article>
+    <article ref="pageScroll">
       <router-view v-slot="{ Component }">
         <keep-alive>
-          <transition name="slide" mode="out-in">
+          <transition name="slide" mode="out-in" @before-enter="resetPageScroll">
             <component :is="Component" />
           </transition>
         </keep-alive>
@@ -16,7 +16,14 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import NavMenu from '@/components/main-content/NavMenu.vue'
+
+const pageScroll = ref(null)
+
+const resetPageScroll = () => {
+  if (pageScroll.value) pageScroll.value.scrollTop = 0
+}
 </script>
 
 <style scoped>
