@@ -1,7 +1,7 @@
 <template>
   <div class="page-container">
     <div class="title-filter_wrapper">
-      <title-generic title="A list of my projects! 💼" />
+      <title-generic title="A list of my projects! 💼" :background="false" />
       <div class="select-filter_wrapper">
         <label class="filter-title">Filter: </label>
         <select v-model="filterValue" class="select-filter">

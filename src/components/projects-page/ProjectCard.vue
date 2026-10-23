@@ -87,6 +87,11 @@ h2::before {
   margin-top: 10px;
   text-align: center;
   overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
 }
 
 .card-container:hover {

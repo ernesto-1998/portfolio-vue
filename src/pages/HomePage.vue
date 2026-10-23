@@ -6,7 +6,7 @@
       class="display"
     />
     <cv-link class="display" />
-    <title-generic :title="props['title_generic'].title" />
+    <title-generic :title="props['title_generic'].title" :background="false" />
     <div class="home-body">
       <info-card :text="props['info_card'].text" />
       <div class="education-social_wrapper display">
