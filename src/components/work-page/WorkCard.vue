@@ -1,95 +1,156 @@
 <template>
-  <div class="card-wrapper" :class="['card-back-color', { active }]">
-    <h1>{{ duration }}</h1>
-    <h3>{{ company }} - {{ position }}</h3>
-    <p class="card-description">{{ description }}</p>
-    <p class="card-tech">
-      {{ tech }}
-    </p>
-  </div>
+  <article class="work-card">
+    <header class="card-header">
+      <div class="job-heading">
+        <h2>{{ company }}</h2>
+        <h3>{{ position }}</h3>
+      </div>
+      <div class="job-meta">
+        <p class="duration">{{ duration }}</p>
+        <span v-if="promotedAfterSixMonths" class="promotion">Promoted after 6 months</span>
+      </div>
+    </header>
+
+    <ul class="responsibilities">
+      <li v-for="responsibility in responsibilities" :key="responsibility">
+        {{ responsibility }}
+      </li>
+    </ul>
+
+    <ul class="tech-list" aria-label="Technologies used">
+      <li v-for="technology in tech" :key="technology" class="tech-tag">{{ technology }}</li>
+    </ul>
+  </article>
 </template>
 
 <script setup>
 defineProps({
-  company: {
-    type: String,
-    required: true
-  },
-  position: {
-    type: String,
-    required: true
-  },
-  duration: {
-    type: String,
-    required: true
-  },
-  tech: {
-    type: String,
-    required: true
-  },
-  description: {
-    type: String,
-    required: true
-  },
-  active: {
-    type: Boolean,
-    required: false,
-    default: false,
-  }
+  company: { type: String, required: true },
+  position: { type: String, required: true },
+  duration: { type: String, required: true },
+  responsibilities: { type: Array, required: true },
+  tech: { type: Array, required: true },
+  promotedAfterSixMonths: { type: Boolean, default: false }
 })
 </script>
 
 <style scoped>
-
-.card-back-color {
-  background-color: var(--element-color);
+.work-card {
+  min-width: 0;
+  padding: 28px 30px;
+  border: 1px solid #7954a5;
+  border-radius: var(--border-radius-page);
+  background-color: var(--backtitle-v2-color);
+  color: var(--layout-color);
+  font-family: var(--title-font);
 }
 
-.card-back-color.active {
-  background-color: var(--cristal-box-shadow-color);
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
 }
 
-.card-wrapper {
+.job-heading {
+  min-width: 0;
+}
+
+.job-heading h2 {
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.job-heading h3 {
+  margin-top: 2px;
+  color: #d9b8ff;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.job-meta {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  justify-content: center;
-  align-items: center;
-  padding: 15px 0 0;
-  font-family: var(--title-font);
-  color: var(--layout-color);
-  background-color: var(--element-color);
-  clip-path: polygon(14% 0, 86% 0, 100% 50%, 100% 100%, 0 100%, 0% 50%);
+  align-items: flex-end;
+  gap: 12px;
+  flex: none;
 }
 
-h1 {
-  font-size: medium;
-}
-
-h3 {
+.duration {
+  color: #d9b8ff;
   font-size: 17px;
-  font-weight: 700;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: right;
 }
 
-.card-description {
-  background-color: var(--backtitle-color);
-  border-radius: var(--border-radius-page);
-  margin: 10px 25px;
-  padding: 10px;
-  font-size: 15px;
-  height: 150px;
-  overflow-y: auto;
-  font-family: var(--text-font);
-  line-height: 25px;
+.promotion {
+  padding: 7px 12px;
+  border: 1px solid #7954a5;
+  border-radius: 10px;
+  background-color: var(--cristal-main-color);
+  color: #e9d7ff;
+  font-size: 14px;
+  line-height: 1.4;
 }
 
-.card-tech {
-  padding: 10px;
-  font-weight: 700;
-  background: var(--cristal-main-color);
-  box-shadow: 0 8px 32px 0 var(--cristal-box-shadow-color);
-  backdrop-filter: blur(18.5px);
-  -webkit-backdrop-filter: blur(18.5px);
-  border: 1px solid var(--cristal-border-color);
+.responsibilities {
+  margin-top: 20px;
+  padding-left: 24px;
+  list-style: disc;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.responsibilities li {
+  padding-left: 4px;
+  overflow-wrap: anywhere;
+}
+
+.responsibilities li + li {
+  margin-top: 6px;
+}
+
+.responsibilities li::marker {
+  color: #c79cff;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.tech-tag {
+  padding: 5px 12px;
+  border: 1px solid #7954a5;
+  border-radius: 10px;
+  background-color: var(--cristal-main-color);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+  .work-card {
+    padding: 22px 20px;
+  }
+
+  .card-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .job-meta {
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .duration {
+    text-align: left;
+  }
 }
 </style>
