@@ -129,9 +129,9 @@ const experienceAreas = [
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   align-items: center;
-  gap: 26px;
+  gap: 18px;
   overflow: hidden;
-  padding: clamp(28px, 3vw, 42px);
+  padding: clamp(24px, 2.5vw, 34px);
 }
 .hero-content {
   position: relative;
@@ -141,7 +141,7 @@ const experienceAreas = [
 .hero-visual {
   position: relative;
   width: 100%;
-  max-height: 330px;
+  max-height: 280px;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   -webkit-mask-image: radial-gradient(ellipse 95% 95% at 62% 55%, #000 55%, transparent 100%);
@@ -162,13 +162,13 @@ const experienceAreas = [
   letter-spacing: 0.19em;
 }
 .hero h1 {
-  margin-top: 9px;
+  margin-top: 7px;
   font-size: clamp(36px, 4vw, 52px);
   line-height: 1.08;
   overflow-wrap: break-word;
 }
 .hero-subtitle {
-  margin-top: 8px;
+  margin-top: 6px;
   color: #c6a4ff;
   font-size: clamp(22px, 2.5vw, 29px);
   font-weight: var(--weight-semibold);
@@ -176,9 +176,9 @@ const experienceAreas = [
 }
 .hero-copy {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   max-width: 76ch;
-  margin-top: 21px;
+  margin-top: 16px;
   color: #eee8fb;
   font-size: var(--type-body);
   font-weight: var(--weight-regular);
@@ -189,7 +189,7 @@ const experienceAreas = [
   flex-wrap: wrap;
   align-items: center;
   gap: 12px;
-  margin-top: 22px;
+  margin-top: 18px;
 }
 .hero-action {
   display: inline-flex;
@@ -356,6 +356,18 @@ const experienceAreas = [
     -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 32%, #000 100%);
     mask-image: linear-gradient(90deg, transparent 0%, #000 32%, #000 100%);
   }
+  .hero-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(22, 11, 53, 0.26),
+      rgba(22, 11, 53, 0.12) 45%,
+      transparent 72%
+    );
+    pointer-events: none;
+  }
   .hero-visual img {
     object-position: 65% 58%;
   }
@@ -403,10 +415,10 @@ const experienceAreas = [
     grid-template-columns: 1fr;
   }
   .hero {
-    padding: 26px 20px;
+    padding: 22px 18px;
   }
   .hero-visual {
-    max-height: 240px;
+    max-height: 200px;
   }
   .hero-visual img {
     transform: scale(1.12);
