@@ -12,30 +12,35 @@
     </section>
 
     <section class="hero" aria-labelledby="home-title">
-      <p class="hero-intro">Hi, I’m Ernesto</p>
-      <h1 id="home-title">Software Engineer</h1>
-      <p class="hero-subtitle">Backend-focused. Full-stack experience.</p>
-      <div class="hero-copy">
-        <p>
-          I build backend services and full-stack applications with TypeScript, Node.js, and
-          C#/.NET. My professional experience includes diagnosing production issues, improving
-          performance, and maintaining business-critical software.
-        </p>
-        <p>
-          I also develop open-source tools, including Mapa Audit, an audit logging SDK for Node.js
-          with integrations for Express, Fastify, and NestJS.
-        </p>
+      <div class="hero-content">
+        <p class="hero-intro">Hi, I’m Ernesto</p>
+        <h1 id="home-title">Software Engineer</h1>
+        <p class="hero-subtitle">Backend-focused. Full-stack experience.</p>
+        <div class="hero-copy">
+          <p>
+            I build backend services and full-stack applications with TypeScript, Node.js, and
+            C#/.NET. My professional experience includes diagnosing production issues, improving
+            performance, and maintaining business-critical software.
+          </p>
+          <p>
+            I also develop open-source tools, including Mapa Audit, an audit logging SDK for Node.js
+            with integrations for Express, Fastify, and NestJS.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <router-link :to="{ name: 'projects' }" class="hero-action primary-action">
+            <span>Explore projects</span>
+            <base-icon icon-name="arrowRight" :size="21" color="currentColor" aria-hidden="true" />
+          </router-link>
+          <router-link :to="{ name: 'contact' }" class="hero-action secondary-action">
+            <base-icon icon-name="contact" :size="22" color="currentColor" aria-hidden="true" />
+            <span>Get in touch</span>
+          </router-link>
+          <cv-link class="mobile-cv" />
+        </div>
       </div>
-      <div class="hero-actions">
-        <router-link :to="{ name: 'projects' }" class="hero-action primary-action">
-          <span>Explore projects</span>
-          <base-icon icon-name="arrowRight" :size="21" color="currentColor" aria-hidden="true" />
-        </router-link>
-        <router-link :to="{ name: 'contact' }" class="hero-action secondary-action">
-          <base-icon icon-name="contact" :size="22" color="currentColor" aria-hidden="true" />
-          <span>Get in touch</span>
-        </router-link>
-        <cv-link class="mobile-cv" />
+      <div class="hero-visual">
+        <img src="/home/hero-laptop-focus.png" alt="" decoding="async" />
       </div>
     </section>
 
@@ -120,7 +125,34 @@ const experienceAreas = [
   background: linear-gradient(125deg, #211449 0%, #1c1242 58%, #27164f 100%);
 }
 .hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: 26px;
+  overflow: hidden;
   padding: clamp(28px, 3vw, 42px);
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+.hero-visual {
+  position: relative;
+  width: 100%;
+  max-height: 330px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  -webkit-mask-image: radial-gradient(ellipse 95% 95% at 62% 55%, #000 55%, transparent 100%);
+  mask-image: radial-gradient(ellipse 95% 95% at 62% 55%, #000 55%, transparent 100%);
+}
+.hero-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 65% 60%;
 }
 .hero-intro {
   color: #d3b9ff;
@@ -310,6 +342,24 @@ const experienceAreas = [
   white-space: nowrap;
   border: 0;
 }
+@media (min-width: 1300px) {
+  .hero-content {
+    max-width: 58%;
+  }
+  .hero-visual {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 62%;
+    height: 100%;
+    max-height: none;
+    aspect-ratio: auto;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 32%, #000 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 32%, #000 100%);
+  }
+  .hero-visual img {
+    object-position: 65% 58%;
+  }
+}
 @media (max-width: 1024px) {
   .hero-actions .mobile-cv {
     display: flex;
@@ -354,6 +404,13 @@ const experienceAreas = [
   }
   .hero {
     padding: 26px 20px;
+  }
+  .hero-visual {
+    max-height: 240px;
+  }
+  .hero-visual img {
+    transform: scale(1.12);
+    transform-origin: 67% 60%;
   }
 }
 @media (max-width: 480px) {
