@@ -1,10 +1,13 @@
 <template>
   <div class="page-container">
     <div class="title-filter_wrapper">
-      <title-generic title="A list of my projects! 💼" :background="false" />
+      <div class="page-heading">
+        <title-generic title="Projects" :background="false" />
+        <p>A list of my projects! 💼</p>
+      </div>
       <div class="select-filter_wrapper">
-        <label class="filter-title">Filter: </label>
-        <select v-model="filterValue" class="select-filter">
+        <label for="project-filter" class="filter-title">Filter:</label>
+        <select id="project-filter" v-model="filterValue" class="select-filter">
           <option value="ALL">All</option>
           <option value="FRONTEND">Frontend</option>
           <option value="BACKEND">Backend</option>
@@ -14,7 +17,7 @@
       </div>
     </div>
     <div class="projects-body">
-      <project-card v-for="(card, index) in filteredProjects" :key="index" :card="card" />
+      <project-card v-for="card in filteredProjects" :key="card.title" :card="card" />
     </div>
   </div>
 </template>
@@ -40,8 +43,8 @@ watch(filterValue, (newValue) => {
 <style scoped>
 .projects-body {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
-  gap: var(--page-gap);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: 20px;
 }
 
 .title-filter_wrapper {
@@ -50,12 +53,27 @@ watch(filterValue, (newValue) => {
   gap: 20px;
   align-items: center;
 }
+.page-heading {
+  min-width: 0;
+}
+.page-heading :deep(.title-container) {
+  text-align: left;
+}
+.page-heading :deep(.title) {
+  padding: 0;
+  color: #d9c2ff;
+}
+.page-heading p {
+  color: #e8ddff;
+  font-size: var(--type-subtitle);
+  line-height: 1.3;
+}
 
 .select-filter_wrapper {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin: 0 auto;
+  margin-left: auto;
 }
 
 .filter-title {
@@ -65,13 +83,19 @@ watch(filterValue, (newValue) => {
 }
 
 .select-filter {
-  max-width: 250px;
+  min-width: 150px;
   border-radius: var(--border-radius-title);
+  border: 1px solid #8e6bbb;
   font-size: var(--type-secondary);
   font-weight: var(--weight-medium);
   background-color: var(--element-color);
   color: var(--layout-color);
-  padding: 8px;
+  min-height: 44px;
+  padding: 8px 12px;
+}
+.select-filter:focus-visible {
+  outline: 3px solid #d8bdff;
+  outline-offset: 3px;
 }
 
 @media (max-width: 768px) {
@@ -80,8 +104,8 @@ watch(filterValue, (newValue) => {
     gap: 15px;
   }
 
-  .select-filter {
-    max-width: 100px;
+  .select-filter_wrapper {
+    margin-left: 0;
   }
 }
 </style>

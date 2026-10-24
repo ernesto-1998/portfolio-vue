@@ -1,110 +1,204 @@
 <template>
-  <modal-project ref="modal">
-    <template #content>
-      <modal-project-page :project="props.card" :tag-color="defineBack" />
-    </template>
+  <article class="card-container">
+    <div class="image-frame">
+      <img :src="card.image" :alt="`Screenshot of ${card.title}`" loading="lazy" />
+      <span
+        class="app-type_tag"
+        :class="{ 'tag-fullstack': card.type === 'FULLSTACK' }"
+        :style="{ '--tag-color': tagColor }"
+        >{{ card.type }}</span
+      >
+    </div>
+    <div class="card-content">
+      <h2 class="card-title">{{ card.title }}</h2>
+      <p class="description">{{ card.summary || card.description }}</p>
+      <ul class="tech-list" aria-label="Main technologies">
+        <li
+          v-for="(tech, index) in card.tech.slice(0, 3)"
+          :key="`${tech.text}-${index}`"
+          class="tech-pill"
+        >
+          <base-icon :icon-name="tech.name" :size="20" aria-hidden="true" />
+          <span>{{ tech.text }}</span>
+        </li>
+        <li
+          v-if="card.tech.length > 3"
+          class="tech-pill more-tech"
+          :aria-label="`${card.tech.length - 3} more technologies`"
+        >
+          +{{ card.tech.length - 3 }}
+        </li>
+      </ul>
+      <button class="view-button" type="button" @click="modal.openModal($event.currentTarget)">
+        <span>View project</span>
+        <base-icon icon-name="arrowRight" :size="21" aria-hidden="true" />
+      </button>
+    </div>
+  </article>
+  <modal-project ref="modal" :title-id="titleId">
+    <modal-project-page :project="card" :tag-color="tagColor" :title-id="titleId" />
   </modal-project>
-  <a @click="modal.openModal" target="_blank" class="card-container">
-    <div class="app-type_tag" :style="{ backgroundColor: defineBack }">
-      {{ props.card.type }}
-    </div>
-    <img :src="props.card.image" alt="Web app project" />
-    <div class="text-wrapper">
-      <h2 class="type-card-title">{{ props.card.title }}</h2>
-      <p class="description type-body">{{ props.card.description || 'Web App' }}</p>
-    </div>
-  </a>
 </template>
 
 <script setup>
 import { computed, ref } from 'vue'
-
 import PROJECT_TYPE from '@/enums/project-type.js'
+import BaseIcon from '@/components/icons/BaseIcon.vue'
 import ModalProject from './ModalProject.vue'
 import ModalProjectPage from '@/pages/ModalProjectPage.vue'
 
 const modal = ref(null)
-
-const props = defineProps({
-  card: {
-    type: Object,
-    required: true
-  }
-})
-
-const defineBack = computed(() =>
-  props.card.type === PROJECT_TYPE.FULLSTACK
-    ? 'var(--fullstack-tag-color)'
-    : props.card.type === PROJECT_TYPE.BACKEND
-      ? 'var(--backend-tag-color)'
-      : props.card.type === PROJECT_TYPE.FRONTEND
-        ? 'var(--frontend-tag-color)'
-        : props.card.type === PROJECT_TYPE.PLATFORM
-          ? 'var(--platform-tag-color)'
-          : 'var(--fullstack-tag-color)'
+const props = defineProps({ card: { type: Object, required: true } })
+const titleId = computed(
+  () => `project-title-${props.card.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`
+)
+const tagColor = computed(
+  () =>
+    ({
+      [PROJECT_TYPE.FULLSTACK]: 'var(--fullstack-tag-color)',
+      [PROJECT_TYPE.BACKEND]: 'var(--backend-tag-color)',
+      [PROJECT_TYPE.FRONTEND]: 'var(--frontend-tag-color)',
+      [PROJECT_TYPE.PLATFORM]: 'var(--platform-tag-color)'
+    })[props.card.type] || 'var(--fullstack-tag-color)'
 )
 </script>
 
 <style scoped>
 .card-container {
-  position: relative;
-  transition: 0.3s ease-in-out;
-  background-color: var(--element-color);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--text-color);
+  background: #21134f;
+  border: 1px solid rgba(192, 164, 255, 0.58);
+  border-radius: var(--border-radius-page);
+  box-shadow: 0 10px 24px rgba(12, 5, 44, 0.14);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
 }
-
+.card-container:hover,
+.card-container:focus-within {
+  border-color: #d4bbff;
+  box-shadow: 0 13px 28px rgba(12, 5, 44, 0.26);
+}
 .card-container:hover {
-  cursor: pointer;
+  transform: translateY(-3px);
 }
-
-.app-type_tag {
-  padding: 10px 20px;
-  position: absolute;
-  transform: translateX(-10px) rotate(-7grad);
-  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-  font-size: var(--type-small);
-  font-weight: var(--weight-semibold);
-  line-height: var(--leading-compact);
+.image-frame {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: #130d35;
 }
-
-img {
-  min-height: 200px;
-}
-
-h2 {
+.image-frame img {
+  display: block;
   width: 100%;
-  padding-top: 5px;
-  text-align: center;
-  overflow-wrap: anywhere;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
 }
-
-h2::before {
-  content: '🧑‍💻';
-  margin-right: 10px;
+.app-type_tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 13px;
+  border-radius: 999px;
+  background: var(--tag-color);
+  color: #170e39;
+  font-size: 12px;
+  font-weight: var(--weight-bold);
+  line-height: 1.4;
+  letter-spacing: 0.04em;
 }
-
+.tag-fullstack {
+  color: white;
+}
+.card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+}
+.card-title {
+  font-size: clamp(21px, 1.8vw, 25px);
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
 .description {
-  padding: 5px 10px;
-  margin-top: 10px;
-  text-align: center;
-  overflow-wrap: anywhere;
+  color: #e6ddff;
+  font-size: var(--type-secondary);
+  line-height: 1.45;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
-  line-clamp: 4;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   overflow: hidden;
 }
-
-.card-container:hover {
-  transform: translateY(-7px);
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: auto;
 }
-
-.card-container:hover .tech-list {
-  right: -50%;
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  max-width: 100%;
+  padding: 5px 9px;
+  border: 1px solid rgba(189, 160, 255, 0.34);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 13px;
+  line-height: 1.2;
 }
-
-@media (max-width: 768px) {
-  .display {
-    display: none;
+.tech-pill span {
+  overflow-wrap: anywhere;
+}
+.more-tech {
+  color: #e4cfff;
+  font-weight: var(--weight-semibold);
+}
+.view-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 44px;
+  padding: 9px 15px;
+  border: 0;
+  border-radius: 10px;
+  background: #dac7ff;
+  color: #1a1044;
+  font-size: var(--type-secondary);
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+.view-button:hover {
+  background: #ebdeff;
+}
+.view-button:active {
+  transform: translateY(1px);
+}
+.view-button:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-container,
+  .view-button {
+    transition: none;
+  }
+  .card-container:hover {
+    transform: none;
   }
 }
 </style>

@@ -2,12 +2,17 @@ import GithubIcon from './social/GithubIcon.vue'
 import InstagramIcon from './social/InstagramIcon.vue'
 import LinkedinIcon from './social/LinkedinIcon.vue'
 import Twittericon from './social/TwitterIcon.vue'
+import NpmIcon from './social/NpmIcon.vue'
 
 import UserIcon from './general/UserIcon.vue'
 import ProjectsIcon from './general/ProjectsIcon.vue'
 import WorkIcon from './general/WorkIcon.vue'
 import ContactIcon from './general/ContactIcon.vue'
 import LocationIcon from './general/LocationIcon.vue'
+import ArrowRightIcon from './general/ArrowRightIcon.vue'
+import CloseIcon from './general/CloseIcon.vue'
+import ExternalIcon from './general/ExternalIcon.vue'
+import CodeIcon from './general/CodeIcon.vue'
 
 import HtmlIcon from './skills/HtmlIcon.vue'
 import CssIcon from './skills/CssIcon.vue'
@@ -44,6 +49,7 @@ import GrafanaIcon from './skills/GrafanaIcon.vue'
 
 export const store = {
   github: GithubIcon,
+  npm: NpmIcon,
   instagram: InstagramIcon,
   linkedin: LinkedinIcon,
   twitter: Twittericon,
@@ -53,6 +59,10 @@ export const store = {
   work: WorkIcon,
   contact: ContactIcon,
   location: LocationIcon,
+  arrowRight: ArrowRightIcon,
+  close: CloseIcon,
+  external: ExternalIcon,
+  code: CodeIcon,
 
   html5: HtmlIcon,
   css3: CssIcon,
