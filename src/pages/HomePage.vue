@@ -1,5 +1,16 @@
 <template>
   <div class="home-page">
+    <section class="mobile-profile" aria-label="Profile details">
+      <div class="mobile-identity">
+        <image-title :img-url="profile.imgUrl" :profile-title="profile.profileTitle" />
+        <social-networks />
+      </div>
+      <div class="mobile-profile-details">
+        <education-info :object="profile.education" />
+        <education-info :object="profile.languages" />
+      </div>
+    </section>
+
     <section class="hero" aria-labelledby="home-title">
       <p class="hero-intro">Hi, I’m Ernesto</p>
       <h1 id="home-title">Software Engineer</h1>
@@ -38,17 +49,6 @@
           <h3>{{ area.title }}</h3>
           <p>{{ area.description }}</p>
         </div>
-      </div>
-    </section>
-
-    <section class="mobile-profile" aria-label="Profile details">
-      <div class="mobile-identity">
-        <image-title :img-url="profile.imgUrl" :profile-title="profile.profileTitle" />
-        <social-networks />
-      </div>
-      <div class="mobile-profile-details">
-        <education-info :object="profile.education" />
-        <education-info :object="profile.languages" />
       </div>
     </section>
 
