@@ -1,50 +1,49 @@
 <template>
-  <div class="education-container">
-    <h3 class="type-subtitle">{{ object.title }}</h3>
-    <div class="separator"></div>
-    <ul class="education-list">
-      <li v-for="(item, index) in object.items" :key="index">{{ item }}</li>
+  <section class="profile-section">
+    <h2 class="type-subtitle">
+      <base-icon :icon-name="object.icon" :size="22" color="currentColor" aria-hidden="true" />
+      <span>{{ object.title }}</span>
+    </h2>
+    <ul>
+      <li v-for="item in object.items" :key="item">{{ item }}</li>
     </ul>
-  </div>
+  </section>
 </template>
+
 <script setup>
-defineProps({
-  object: {
-    type: Object,
-    required: true
-  }
-})
+import BaseIcon from '@/components/icons/BaseIcon.vue'
+
+defineProps({ object: { type: Object, required: true } })
 </script>
+
 <style scoped>
-.education-container {
-  max-width: 250px;
-  width: 100%;
-  padding: 10px 12px;
-  background-color: var(--backtitle-color);
-  border-radius: var(--border-radius-title);
-  color: var(--layout-color);
+.profile-section {
+  min-width: 0;
+  padding-top: 18px;
+  border-top: 1px solid rgba(196, 165, 245, 0.36);
+  color: var(--text-color);
 }
-
-.separator {
-  width: 100%;
-  height: 2px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  background-color: var(--layout-color);
-}
-
-.education-list {
-  list-style: none;
+h2 {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 10px;
-  font-size: var(--type-secondary);
-  line-height: var(--leading-compact);
-  overflow-wrap: anywhere;
+  font-size: 19px;
 }
-
-.education-list > li::before {
-  content: '🤖';
-  margin-right: 5px;
+h2 :deep(svg) {
+  flex: none;
+  color: #d7c0ff;
+}
+ul {
+  display: grid;
+  gap: 9px;
+  margin-top: 12px;
+  padding-left: 32px;
+  list-style: none;
+}
+li {
+  color: #e6def4;
+  font-size: 15px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 </style>

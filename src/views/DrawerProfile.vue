@@ -1,48 +1,36 @@
 <template>
-  <aside>
-    <image-title :img-url="props.imgUrl" :profile-title="props.profileTitle" />
+  <aside class="profile-sidebar" aria-label="Profile">
+    <image-title :img-url="profile.imgUrl" :profile-title="profile.profileTitle" />
     <cv-link />
     <social-networks />
-    <education-info :object="props.education" />
+    <education-info :object="profile.education" />
+    <education-info :object="profile.languages" />
   </aside>
 </template>
 
 <script setup>
-import { reactive } from 'vue'
-
 import ImageTitle from '@/components/drawer-profile/ImageTitle.vue'
 import CvLink from '@/components/drawer-profile/CvLink.vue'
 import SocialNetworks from '@/components/drawer-profile/SocialNetworks.vue'
 import EducationInfo from '@/components/drawer-profile/EducationInfo.vue'
-
-const props = reactive({
-  imgUrl: '/profile/neto_profile.jpg',
-  profileTitle: 'Ing. Ernesto Magaña',
-  education: {
-    title: 'Education',
-    items: [
-      'Bachiller general - 2014',
-      'Graduate of Computer Systems Engineering | 2015 - 2023',
-      'Spanish - Native',
-      'English - C1',
-      'Portuguese - A1'
-    ]
-  }
-})
+import profile from '@/utils/profile.js'
 </script>
 
 <style scoped>
-aside {
+.profile-sidebar {
   display: flex;
+  flex: 0 0 260px;
   flex-direction: column;
-  gap: 15px;
-  width: 250px;
-  height: 100%;
+  gap: 16px;
+  width: 260px;
+  min-height: calc(100dvh - 36px);
+  padding: 16px;
+  border: 1px solid rgba(181, 142, 245, 0.48);
   border-radius: var(--border-radius-page);
+  background: linear-gradient(160deg, #211449, #1b103f);
 }
-
 @media (max-width: 1024px) {
-  aside {
+  .profile-sidebar {
     display: none;
   }
 }

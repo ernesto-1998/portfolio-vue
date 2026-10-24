@@ -1,9 +1,14 @@
 <template>
-  <div class="social-container" :style="{ backgroundColor: defineColor }">
-    <ul class="icons-list">
-      <li v-for="icon in social" :key="icon.index" class="icons-li">
-        <a :href="icon.link" :alt="icon.name" target="_blank" rel="noreferrer">
-          <base-icon :icon-name="icon.name" :size="35" :color="'white'" />
+  <div class="social-container">
+    <ul class="icons-list" aria-label="Social profiles">
+      <li v-for="icon in social" :key="icon.name">
+        <a
+          :href="icon.link"
+          :aria-label="`Visit my ${icon.name} profile (opens in a new tab)`"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <base-icon :icon-name="icon.name" :size="25" color="white" aria-hidden="true" />
         </a>
       </li>
     </ul>
@@ -11,73 +16,45 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-
 import social from '@/utils/social.js'
-import BaseIcon from '../icons/BaseIcon.vue'
-
-const props = defineProps({
-  backColor: {
-    type: Boolean,
-    default: true
-  }
-})
-
-const defineColor = computed(() =>
-  props.backColor ? 'var(--backtitle-color)' : 'var(--element-color)'
-)
+import BaseIcon from '@/components/icons/BaseIcon.vue'
 </script>
 
 <style scoped>
 .social-container {
   width: fit-content;
-  display: flex;
-  justify-content: center;
-  padding: 0 15px;
-  border-radius: 16px;
-  color: var(--layout-color);
-  margin: 0 auto;
-}
-
-.icons-list {
-  padding: 10px 0;
   max-width: 100%;
+}
+.icons-list {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 0;
   list-style: none;
-  gap: 15px;
-  overflow: auto;
 }
-
-.icons-list::-webkit-scrollbar {
-  height: 7px;
-  background: var(--page-color);
-  border-radius: var(--border-radius-page);
+a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(193, 163, 244, 0.46);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.025);
+  transition:
+    background 180ms ease,
+    border-color 180ms ease;
 }
-
-::-webkit-scrollbar-thumb {
-  background: var(--layout-color);
-  border-radius: calc(15px / 2);
+a:hover {
+  background: #43306f;
+  border-color: #d5bbff;
 }
-
-.icons-li {
-  transition: 0.3s ease-in-out;
+a:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
 }
-
-.icons-li:hover {
-  transform: translateY(-5px);
-}
-
-.icons-li a {
-  display: flex;
-  align-items: center;
-  height: fit-content;
-}
-
-@media (max-width: 1024px) {
-  .social-container {
-    padding: 5px 20px;
+@media (prefers-reduced-motion: reduce) {
+  a {
+    transition: none;
   }
 }
 </style>

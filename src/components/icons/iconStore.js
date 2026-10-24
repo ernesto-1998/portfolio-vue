@@ -13,6 +13,14 @@ import ArrowRightIcon from './general/ArrowRightIcon.vue'
 import CloseIcon from './general/CloseIcon.vue'
 import ExternalIcon from './general/ExternalIcon.vue'
 import CodeIcon from './general/CodeIcon.vue'
+import WrenchIcon from './general/WrenchIcon.vue'
+import PerformanceIcon from './general/PerformanceIcon.vue'
+import CommunityIcon from './general/CommunityIcon.vue'
+import DatabaseIcon from './general/DatabaseIcon.vue'
+import MonitorIcon from './general/MonitorIcon.vue'
+import EducationIcon from './general/EducationIcon.vue'
+import LanguageIcon from './general/LanguageIcon.vue'
+import DocumentIcon from './general/DocumentIcon.vue'
 
 import HtmlIcon from './skills/HtmlIcon.vue'
 import CssIcon from './skills/CssIcon.vue'
@@ -46,6 +54,7 @@ import TimescaleIcon from './skills/TimescaleIcon.vue'
 import FastifyIcon from './skills/FastifyIcon.vue'
 import PrometheusIcon from './skills/PrometheusIcon.vue'
 import GrafanaIcon from './skills/GrafanaIcon.vue'
+import DotnetIcon from './skills/DotnetIcon.vue'
 
 export const store = {
   github: GithubIcon,
@@ -63,6 +72,14 @@ export const store = {
   close: CloseIcon,
   external: ExternalIcon,
   code: CodeIcon,
+  wrench: WrenchIcon,
+  performance: PerformanceIcon,
+  community: CommunityIcon,
+  database: DatabaseIcon,
+  monitor: MonitorIcon,
+  education: EducationIcon,
+  language: LanguageIcon,
+  document: DocumentIcon,
 
   html5: HtmlIcon,
   css3: CssIcon,
@@ -87,6 +104,7 @@ export const store = {
   linux: LinuxIcon,
   angular: AngularIcon,
   csharp: CSharpIcon,
+  dotnet: DotnetIcon,
   swagger: SwaggerIcon,
   jest: JestIcon,
   rabbitmq: RabbitmqIcon,

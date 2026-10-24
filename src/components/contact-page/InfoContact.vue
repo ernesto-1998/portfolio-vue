@@ -1,7 +1,7 @@
 <template>
   <div class="info-container">
     <title-generic :title="'My social networks!'" :background="false" :level="2" />
-    <social-networks :back-color="false" />
+    <social-networks />
     <contact-card :array="contact_info" />
   </div>
 </template>

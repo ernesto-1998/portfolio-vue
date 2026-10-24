@@ -6,36 +6,15 @@
     rel="noopener noreferrer"
     aria-label="View CV (opens in a new tab)"
   >
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path d="M7 2.75h7l4 4V21.25H7a2 2 0 0 1-2-2V4.75a2 2 0 0 1 2-2Z" />
-      <path d="M14 2.75v4h4M9 12h6M9 16h6" />
-    </svg>
+    <base-icon icon-name="document" :size="25" color="currentColor" aria-hidden="true" />
     <span>View CV</span>
-    <svg
-      class="external-icon"
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path d="M8 16 19 5M10 5h9v9" />
-    </svg>
+    <base-icon icon-name="external" :size="19" color="currentColor" aria-hidden="true" />
   </a>
 </template>
 
 <script setup>
 import { CV_URL } from '@/utils/cv.js'
+import BaseIcon from '@/components/icons/BaseIcon.vue'
 </script>
 
 <style scoped>
@@ -68,15 +47,13 @@ import { CV_URL } from '@/utils/cv.js'
   outline-offset: 3px;
 }
 
-svg {
-  width: 26px;
-  height: 26px;
-  flex: none;
-}
-
-.external-icon {
-  width: 20px;
-  height: 20px;
+@media (prefers-reduced-motion: reduce) {
+  .cv-link {
+    transition: none;
+  }
+  .cv-link:hover {
+    transform: none;
+  }
 }
 
 @media (max-width: 1024px) {
