@@ -3,7 +3,6 @@
     <div class="title-filter_wrapper">
       <div class="page-heading">
         <title-generic title="Projects" :background="false" />
-        <p>A list of my projects! 💼</p>
       </div>
       <div class="select-filter_wrapper">
         <label for="project-filter" class="filter-title">Filter:</label>
@@ -41,6 +40,10 @@ watch(filterValue, (newValue) => {
 </script>
 
 <style scoped>
+.page-container {
+  gap: 16px;
+}
+
 .projects-body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
@@ -50,7 +53,7 @@ watch(filterValue, (newValue) => {
 .title-filter_wrapper {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 20px;
+  gap: 12px;
   align-items: center;
 }
 .page-heading {
@@ -63,12 +66,6 @@ watch(filterValue, (newValue) => {
   padding: 0;
   color: #d9c2ff;
 }
-.page-heading p {
-  color: #e8ddff;
-  font-size: var(--type-subtitle);
-  line-height: 1.3;
-}
-
 .select-filter_wrapper {
   display: flex;
   align-items: center;

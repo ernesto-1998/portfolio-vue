@@ -14,19 +14,30 @@
       <p class="description">{{ card.summary || card.description }}</p>
       <ul class="tech-list" aria-label="Main technologies">
         <li
-          v-for="(tech, index) in card.tech.slice(0, 3)"
+          v-for="(tech, index) in card.tech.slice(0, 2)"
           :key="`${tech.text}-${index}`"
           class="tech-pill"
         >
-          <base-icon :icon-name="tech.name" :size="20" aria-hidden="true" />
+          <base-icon :icon-name="tech.name" :size="17" aria-hidden="true" />
           <span>{{ tech.text }}</span>
+        </li>
+        <li v-if="card.tech.length > 2" class="tech-pill third-tech">
+          <base-icon :icon-name="card.tech[2].name" :size="17" aria-hidden="true" />
+          <span>{{ card.tech[2].text }}</span>
         </li>
         <li
           v-if="card.tech.length > 3"
-          class="tech-pill more-tech"
-          :aria-label="`${card.tech.length - 3} more technologies`"
+          class="tech-pill more-tech more-tech-wide"
+          :aria-label="`${card.tech.length - 3} additional technologies`"
         >
           +{{ card.tech.length - 3 }}
+        </li>
+        <li
+          v-if="card.tech.length > 2"
+          class="tech-pill more-tech more-tech-narrow"
+          :aria-label="`${card.tech.length - 2} additional technologies`"
+        >
+          +{{ card.tech.length - 2 }}
         </li>
       </ul>
       <button class="view-button" type="button" @click="modal.openModal($event.currentTarget)">
@@ -65,6 +76,7 @@ const tagColor = computed(
 
 <style scoped>
 .card-container {
+  container-type: inline-size;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -89,7 +101,7 @@ const tagColor = computed(
 }
 .image-frame {
   position: relative;
-  aspect-ratio: 16 / 10;
+  height: 190px;
   background: #130d35;
 }
 .image-frame img {
@@ -119,18 +131,19 @@ const tagColor = computed(
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 14px;
-  padding: 18px;
+  gap: 12px;
+  padding: 16px;
 }
 .card-title {
-  font-size: clamp(21px, 1.8vw, 25px);
+  font-size: clamp(20px, 1.7vw, 24px);
   line-height: 1.2;
   overflow-wrap: break-word;
 }
 .description {
   color: #e6ddff;
-  font-size: var(--type-secondary);
-  line-height: 1.45;
+  font-size: 16px;
+  font-weight: var(--weight-regular);
+  line-height: 1.5;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
@@ -139,17 +152,18 @@ const tagColor = computed(
 }
 .tech-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  margin-top: auto;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
 }
 .tech-pill {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  min-height: 34px;
-  max-width: 100%;
-  padding: 5px 9px;
+  flex: 0 1 auto;
+  gap: 4px;
+  min-width: 0;
+  min-height: 30px;
+  padding: 4px 6px;
   border: 1px solid rgba(189, 160, 255, 0.34);
   border-radius: 9px;
   background: rgba(255, 255, 255, 0.04);
@@ -159,9 +173,16 @@ const tagColor = computed(
 .tech-pill span {
   overflow-wrap: anywhere;
 }
+.tech-pill :deep(svg) {
+  flex: none;
+}
 .more-tech {
+  flex: none;
   color: #e4cfff;
   font-weight: var(--weight-semibold);
+}
+.more-tech-narrow {
+  display: none;
 }
 .view-button {
   display: inline-flex;
@@ -170,6 +191,7 @@ const tagColor = computed(
   gap: 10px;
   width: 100%;
   min-height: 44px;
+  margin-top: auto;
   padding: 9px 15px;
   border: 0;
   border-radius: 10px;
@@ -191,6 +213,20 @@ const tagColor = computed(
 .view-button:focus-visible {
   outline: 3px solid #fff;
   outline-offset: 3px;
+}
+@container (max-width: 340px) {
+  .third-tech,
+  .more-tech-wide {
+    display: none;
+  }
+  .more-tech-narrow {
+    display: inline-flex;
+  }
+}
+@media (max-width: 600px) {
+  .image-frame {
+    height: 165px;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .card-container,
