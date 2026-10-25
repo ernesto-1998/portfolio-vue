@@ -3,10 +3,10 @@
     <section>
       <nav-menu />
     </section>
-    <article ref="pageScroll">
+    <article>
       <router-view v-slot="{ Component }">
         <keep-alive>
-          <transition name="slide" mode="out-in" @before-enter="resetPageScroll">
+          <transition name="slide" mode="out-in">
             <component :is="Component" />
           </transition>
         </keep-alive>
@@ -16,30 +16,24 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import NavMenu from '@/components/main-content/NavMenu.vue'
 import { useRoute } from 'vue-router'
 
-const pageScroll = ref(null)
 const route = useRoute()
 const isHome = computed(() => route.name === 'home')
-
-const resetPageScroll = () => {
-  if (pageScroll.value) pageScroll.value.scrollTop = 0
-}
 </script>
 
 <style scoped>
 main {
   width: 100%;
   min-width: 0;
-  height: 100%;
+  min-height: calc(100dvh - 36px);
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 .home-content {
-  height: auto;
   overflow-x: clip;
 }
 
@@ -52,18 +46,13 @@ section {
 article {
   width: 100%;
   flex: 1;
-  min-height: 0;
-  overflow-y: auto;
   background: var(--linear-gradient);
   border-radius: var(--border-radius-page);
   padding: 20px;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 .home-content article {
   flex: none;
-  height: auto;
-  overflow-x: clip;
-  overflow-y: visible;
   background: transparent;
   border-radius: 0;
   padding: 0;
@@ -103,6 +92,10 @@ article {
 }
 
 @media (max-width: 1024px) {
+  main {
+    min-height: calc(100dvh - 32px);
+  }
+
   article {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
