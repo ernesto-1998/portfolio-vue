@@ -23,11 +23,16 @@ import profile from '@/utils/profile.js'
   flex-direction: column;
   gap: 16px;
   width: 260px;
-  min-height: calc(100dvh - 36px);
+  height: 100%;
+  min-height: 0;
   padding: 16px;
   border: 1px solid rgba(181, 142, 245, 0.48);
   border-radius: var(--border-radius-page);
   background: linear-gradient(160deg, #211449, #1b103f);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #8265aa transparent;
 }
 @media (max-width: 1024px) {
   .profile-sidebar {

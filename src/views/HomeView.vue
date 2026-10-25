@@ -16,15 +16,16 @@ if ('virtualKeyboard' in navigator) {
 
 <style scoped>
 .general-container {
-  min-height: 100dvh;
+  height: 100dvh;
   display: flex;
-  align-items: flex-start;
   gap: 20px;
   padding: 18px;
 }
 
 @media (max-width: 1024px) {
   .general-container {
+    height: auto;
+    min-height: 100dvh;
     padding: 16px;
   }
 }
