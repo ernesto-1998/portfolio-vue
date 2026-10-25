@@ -1,153 +1,224 @@
 <template>
-  <div class="form-container">
-    <h2 class="type-section-title">Send me an email!</h2>
-    <form @submit="senData" ref="form" method="POST">
-      <input type="hidden" name="access_key" :value="YOUR_ACCESS_KEY_HERE" />
+  <section class="form-container" aria-labelledby="message-heading">
+    <div class="card-heading">
+      <span class="heading-icon" aria-hidden="true">
+        <base-icon icon-name="contact" :size="26" color="currentColor" />
+      </span>
+      <h2 id="message-heading" class="type-section-title">Send me a message</h2>
+    </div>
+
+    <form ref="form" method="POST" novalidate @submit.prevent="sendData">
+      <input type="hidden" name="access_key" :value="accessKey" />
       <div class="fullname-wrapper">
-        <input-form :object="props.name" />
-        <input-form :object="props.lastname" />
+        <input-form :object="fields.name" />
+        <input-form :object="fields.lastname" />
       </div>
-      <input-form :object="props.email" />
-      <text-area :object="props.textarea" />
-      <input type="checkbox" name="botcheck" class="hidden" style="display: none" />
-      <div class="button-wrapper"><button type="submit">Subtmit</button></div>
+      <input-form :object="fields.email" />
+      <text-area :object="fields.message" />
+      <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" aria-hidden="true" />
+      <button type="submit" :disabled="isSubmitting">
+        {{ isSubmitting ? 'Sending…' : 'Send message' }}
+      </button>
+      <p
+        v-if="status.message"
+        class="form-status"
+        :class="status.type"
+        role="status"
+        aria-live="polite"
+      >
+        {{ status.message }}
+      </p>
     </form>
-  </div>
+  </section>
 </template>
 
 <script setup>
 import { reactive, ref } from 'vue'
-
-import alerts from '@/utils/alerts.js'
-
+import BaseIcon from '@/components/icons/BaseIcon.vue'
 import InputForm from './InputForm.vue'
 import TextArea from './TextArea.vue'
 
-const props = reactive({
+const fields = {
   name: {
-    type: 'text',
-    placeholder: 'Introduce your name...',
+    id: 'contact-first-name',
     name: 'name',
-    icon: {
-      name: 'user',
-      size: 25,
-      color: 'white'
-    }
+    label: 'First name',
+    type: 'text',
+    autocomplete: 'given-name',
+    placeholder: 'Your first name'
   },
   lastname: {
-    type: 'text',
-    placeholder: 'Introduce your lastname...',
+    id: 'contact-last-name',
     name: 'lastname',
-    icon: {
-      name: 'user',
-      size: 25,
-      color: 'white'
-    }
+    label: 'Last name',
+    type: 'text',
+    autocomplete: 'family-name',
+    placeholder: 'Your last name'
   },
   email: {
-    type: 'email',
-    placeholder: 'Introduce your email...',
+    id: 'contact-email',
     name: 'email',
-    icon: {
-      name: 'contact',
-      size: 23,
-      color: 'white'
-    }
+    label: 'Email',
+    type: 'email',
+    autocomplete: 'email',
+    placeholder: 'you@example.com'
   },
-  textarea: {
+  message: {
+    id: 'contact-message',
     name: 'message',
-    placeholder: 'how can i help you...'
+    label: 'Message',
+    placeholder: 'Tell me about your opportunity or project…'
   }
-})
+}
 
-const YOUR_ACCESS_KEY_HERE = ref('f7f316ab-3366-4b07-abeb-b35c597b1340')
+const accessKey = 'f7f316ab-3366-4b07-abeb-b35c597b1340'
 const form = ref(null)
-const senData = (e) => {
-  e.preventDefault()
-  const formData = new FormData(e.target)
-  const object = Object.fromEntries(formData)
-  if (!object.name || !object.lastname || !object.email || !object.message) {
-    alerts.emailError('Error', 'You have to fill all form fields')
+const isSubmitting = ref(false)
+const status = reactive({ type: '', message: '' })
+
+async function sendData(event) {
+  if (isSubmitting.value) return
+
+  const formData = new FormData(event.currentTarget)
+  const values = Object.fromEntries(formData)
+  const missingField = ['name', 'lastname', 'email', 'message'].find(
+    (field) => !String(values[field] || '').trim()
+  )
+
+  if (missingField) {
+    status.type = 'error'
+    status.message = 'Please fill in all form fields.'
+    form.value?.elements.namedItem(missingField)?.focus()
     return
   }
-  const json = JSON.stringify(object)
-  fetch('https://api.web3forms.com/submit', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json'
-    },
-    body: json
-  })
-    .then(async (response) => {
-      let json = await response.json()
-      if (response.ok) alerts.emailSended('It worked!!!', 'Email successfully sent!')
-      else alerts.emailError('Something went wrong...', json.message)
+
+  if (!form.value.elements.namedItem('email').checkValidity()) {
+    status.type = 'error'
+    status.message = 'Please enter a valid email address.'
+    form.value.elements.namedItem('email').focus()
+    return
+  }
+
+  isSubmitting.value = true
+  status.type = 'sending'
+  status.message = 'Sending your message…'
+
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify(values)
     })
-    .catch((error) => {
-      const errorMessage = typeof error === 'string' ? error : error.message
-      alerts.emailError('Something went wrong', errorMessage)
-    })
-    .finally(function () {
-      form.value.reset()
-    })
+    const result = await response.json()
+
+    if (!response.ok || result.success === false) {
+      throw new Error(result.message || 'Please try again later.')
+    }
+
+    status.type = 'success'
+    status.message = 'Message sent successfully!'
+    form.value.reset()
+  } catch (error) {
+    status.type = 'error'
+    status.message = `Could not send your message. ${error.message || 'Please try again later.'}`
+  } finally {
+    isSubmitting.value = false
+  }
 }
 </script>
 
 <style scoped>
 .form-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  background-color: var(--element-color);
-  padding: 20px;
-  color: var(--layout-color);
+  container-type: inline-size;
+  min-width: 0;
+  padding: clamp(18px, 2vw, 26px);
+  border: 1px solid rgba(192, 164, 255, 0.42);
   border-radius: var(--border-radius-page);
+  background: linear-gradient(145deg, rgba(84, 57, 116, 0.48), rgba(48, 30, 86, 0.72));
 }
-
-h2 {
-  text-align: center;
-}
-
-form {
+.card-heading {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
 }
-
+.card-heading h2 {
+  min-width: 0;
+  font-size: clamp(21px, 2vw, 25px);
+}
+.heading-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(201, 169, 255, 0.3);
+  border-radius: 12px;
+  background: rgba(157, 111, 220, 0.27);
+  color: #f2e9ff;
+}
+form {
+  display: grid;
+  gap: 16px;
+}
 .fullname-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
 }
-
-.button-wrapper {
-  display: flex;
-  justify-content: center;
+.honeypot {
+  display: none;
 }
-
 button {
-  max-width: 100%;
-  padding: 15px 30px;
-  background-color: var(--backtitle-color);
-  border-radius: var(--border-radius-title);
-  border: 1px solid var(--layout-color);
-  color: var(--layout-color);
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: #dfceff;
+  color: #1b1040;
   font-size: var(--type-secondary);
-  font-weight: var(--weight-semibold);
-  line-height: var(--leading-compact);
-  overflow-wrap: anywhere;
-  transition: 0.3s ease-in;
-}
-
-button:hover {
+  font-weight: var(--weight-bold);
   cursor: pointer;
-  background-color: var(--element-color);
+  transition: background 180ms ease;
 }
-
-@media (max-width: 768px) {
+button:hover:not(:disabled) {
+  background: #eee3ff;
+}
+button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+button:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+.form-status {
+  padding: 10px 12px;
+  border-radius: 9px;
+  font-size: var(--type-secondary);
+  line-height: var(--leading-compact);
+}
+.form-status.sending {
+  background: rgba(191, 163, 255, 0.14);
+}
+.form-status.success {
+  background: rgba(77, 180, 145, 0.2);
+}
+.form-status.error {
+  background: rgba(235, 101, 121, 0.2);
+}
+@container (max-width: 430px) {
   .fullname-wrapper {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  button {
+    transition: none;
   }
 }
 </style>

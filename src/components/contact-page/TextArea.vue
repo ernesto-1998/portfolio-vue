@@ -1,39 +1,57 @@
 <template>
-  <textarea
-    :name="props.object.name"
-    :placeholder="props.object.placeholder"
-    id=""
-    cols="30"
-    rows="7"
-  ></textarea>
+  <div class="field">
+    <label :for="object.id">{{ object.label }}</label>
+    <textarea
+      :id="object.id"
+      :name="object.name"
+      :placeholder="object.placeholder"
+      rows="5"
+      required
+    ></textarea>
+  </div>
 </template>
+
 <script setup>
-const props = defineProps({
-  object: {
-    type: Object,
-    required: true
-  }
+defineProps({
+  object: { type: Object, required: true }
 })
 </script>
+
 <style scoped>
-textarea {
-  width: 100%;
-  padding: 10px;
-  background-color: var(--backtitle-color);
-  color: var(--layout-color);
+.field {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+label {
+  color: #f5efff;
   font-size: var(--type-secondary);
-  line-height: var(--leading-body);
-  border: none;
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-compact);
+}
+textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 110px;
+  padding: 11px 13px;
+  border: 1px solid rgba(190, 157, 247, 0.56);
+  border-radius: 9px;
   outline: none;
-  transition: 0.3s ease-in-out;
-  resize: none;
+  background: #23144d;
+  color: var(--text-color);
+  font-size: var(--type-secondary);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-body);
+  resize: vertical;
 }
-
 textarea::placeholder {
-  color: #d9b8ff;
+  color: #b9a4db;
+  opacity: 1;
 }
-
-textarea:focus {
-  background-color: var(--backtitle-v2-color);
+textarea:focus-visible {
+  border-color: #e0c9ff;
+  outline: 3px solid rgba(221, 201, 255, 0.55);
+  outline-offset: 2px;
 }
 </style>

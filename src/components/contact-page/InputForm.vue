@@ -1,67 +1,56 @@
 <template>
-  <div class="input-wrapper">
+  <div class="field">
+    <label :for="object.id">{{ object.label }}</label>
     <input
-      :name="props.object.name"
-      :type="props.object.type"
-      :placeholder="props.object.placeholder"
-      :style="{ paddingLeft: getPadding }"
-    />
-    <base-icon
-      v-if="props.object.icon !== null"
-      :icon-name="props.object.icon.name"
-      :size="props.object.icon.size"
-      :color="props.object.icon.color"
-      id="icon"
+      :id="object.id"
+      :name="object.name"
+      :type="object.type"
+      :autocomplete="object.autocomplete"
+      :placeholder="object.placeholder"
+      required
     />
   </div>
 </template>
+
 <script setup>
-import { computed } from 'vue'
-
-import BaseIcon from '@/components/icons/BaseIcon.vue'
-
-const props = defineProps({
-  object: {
-    type: Object,
-    required: true
-  }
-})
-
-const getPadding = computed(() => {
-  return props.object.icon ? '35px' : '5px'
+defineProps({
+  object: { type: Object, required: true }
 })
 </script>
-<style scoped>
-.input-wrapper {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
+<style scoped>
+.field {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+label {
+  color: #f5efff;
+  font-size: var(--type-secondary);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-compact);
+}
 input {
   width: 100%;
-  min-height: 44px;
-  padding-block: 9px;
-  background-color: var(--backtitle-color);
-  color: var(--layout-color);
-  font-size: var(--type-secondary);
-  line-height: var(--leading-compact);
-  border: none;
+  min-width: 0;
+  min-height: 46px;
+  padding: 10px 13px;
+  border: 1px solid rgba(190, 157, 247, 0.56);
+  border-radius: 9px;
   outline: none;
-  transition: 0.3s ease-in-out;
+  background: #23144d;
+  color: var(--text-color);
+  font-size: var(--type-secondary);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-compact);
 }
-
 input::placeholder {
-  color: #d9b8ff;
+  color: #b9a4db;
+  opacity: 1;
 }
-
-input:focus {
-  background-color: var(--backtitle-v2-color);
-}
-
-#icon {
-  position: absolute;
-  left: 5px;
+input:focus-visible {
+  border-color: #e0c9ff;
+  outline: 3px solid rgba(221, 201, 255, 0.55);
+  outline-offset: 2px;
 }
 </style>

@@ -1,7 +1,11 @@
 <template>
-  <div class="page-container">
-    <title-generic title="Contact me! 📢" class="display" />
-    <div class="form-body">
+  <div class="contact-page">
+    <header class="contact-heading">
+      <h1 class="type-page-title">Let’s connect</h1>
+      <p>Have an opportunity or a project in mind? I’d love to hear from you.</p>
+    </header>
+
+    <div class="contact-grid">
       <form-contact />
       <info-contact />
     </div>
@@ -9,26 +13,46 @@
 </template>
 
 <script setup>
-import TitleGeneric from '@/components/TitleGeneric.vue'
 import FormContact from '@/components/contact-page/FormContact.vue'
 import InfoContact from '@/components/contact-page/InfoContact.vue'
 </script>
-<style scoped>
-.form-body {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-}
 
-@media (max-width: 1024px) {
-  .form-body {
-    grid-template-columns: 1fr;
+<style scoped>
+.contact-page {
+  container-type: inline-size;
+  min-width: 0;
+  color: var(--text-color);
+}
+.contact-heading {
+  margin-bottom: 22px;
+}
+.contact-heading h1 {
+  color: #ddc8ff;
+}
+.contact-heading p {
+  margin-top: 5px;
+  color: #e5d8ff;
+  font-size: var(--type-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-compact);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 18px;
+  align-items: stretch;
+}
+@container (max-width: 760px) {
+  .contact-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
-
-@media (min-width: 1024px) {
-  .display {
-    display: none;
+@media (max-width: 600px) {
+  .contact-heading {
+    margin-bottom: 18px;
+  }
+  .contact-grid {
+    gap: 16px;
   }
 }
 </style>
